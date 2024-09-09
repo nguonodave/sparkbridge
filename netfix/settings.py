@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # apps created
-    "services.apps.ServicesConfig"
+    "services.apps.ServicesConfig",
+    "main.apps.MainConfig",
 ]
 
 MIDDLEWARE = [
