@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def service_list(request):
-    return HttpResponse("these are services")
+    return render(request, 'services/services.html')
 
 def index(request, id):
-    return HttpResponse("this is service" + " " + str(id))
+    return render(request, 'services/service.html')
