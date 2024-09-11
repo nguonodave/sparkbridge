@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . models import Service
 
 services = [
   {
@@ -39,17 +40,14 @@ services = [
 ]
 
 def service_list(request):
+    services = Service.objects.all()
     context = {
         "services" : services
     }
     return render(request, 'services/services.html', context)
 
 def index(request, id):
-    service = None
-    for i in services:
-        if i['id'] == id:
-            service = i
-    
+    service = Service.objects.get(id=id)
     context = {
         "service": service
     }
