@@ -2,7 +2,7 @@ from django.shortcuts import render
 from . models import Service
 
 def service_list(request):
-    services = Service.objects.all()
+    services = Service.objects.all().order_by("-date")
     context = {
         "services" : services
     }
