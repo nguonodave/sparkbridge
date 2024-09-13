@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . models import Service
 from . forms import CreateNewService
 
@@ -17,7 +17,21 @@ def index(request, id):
     return render(request, 'services/service.html', context)
 
 def create(request):
-    form = CreateNewService()
+    form = CreateNewService(choices=Service.choices)
+    if request.method == "POST":
+        # print(request.POST)
+        form = CreateNewService(request.POST, choices=Service.choices)
+        if form.is_valid():
+            cd = form.cleaned_data
+            service = Service(
+                name = cd["name"],
+                description = cd["description"],
+                price_hr = cd["price_hr"],
+                field = cd["field"],
+            )
+            service.save()
+            return redirect("index", id=service.id)
+
     context = {
         "form": form
     }
