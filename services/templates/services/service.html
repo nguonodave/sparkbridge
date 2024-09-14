@@ -3,6 +3,8 @@
 {% block content %}
 <h1>this is a service</h1>
 
+<a href="{% url 'service_delete' service.id %}">delete</a>
+
 <p>{{service.name}}</p>
 <p>{{service.description}}</p>
 <p>{{service.field}}</p>

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<form class="delete_form" action="" method="POST">
+    {% csrf_token %}
+    
+    <p>Are you sure you want to delete "{{service}}"?</p>
+
+    <a href="{% url 'service_list' %}">
+        Go back
+    </a>
+    <input type="submit" value="Delete">
+</form>
+{% endblock %}

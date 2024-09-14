@@ -64,3 +64,13 @@ def update(request, id):
         "form": form
     }
     return render(request, "services/create.html", context)
+
+def delete(request, id):
+    service = Service.objects.get(id=id)
+    if request.method == "POST":
+        service.delete()
+        return redirect("service_list")
+    context = {
+        "service": service
+    }
+    return render(request, "services/delete.html", context)
