@@ -70,7 +70,3 @@ def delete(request, id):
     if request.method == "POST":
         service.delete()
         return redirect("service_list")
-    context = {
-        "service": service
-    }
-    return render(request, "services/delete.html", context)
