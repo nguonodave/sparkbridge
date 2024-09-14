@@ -1,6 +1,7 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+<div class="main-body">
 <h1>this is a service</h1>
 
 <!-- <a href="{% url 'service_delete' service.id %}">delete</a> -->
@@ -22,5 +23,6 @@
             <button type="button" onclick="hideDeletePopup()">Cancel</button>
         </form>
     </div>
+</div>
 </div>
 {% endblock content %}
