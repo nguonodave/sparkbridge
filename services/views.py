@@ -36,3 +36,31 @@ def create(request):
         "form": form
     }
     return render(request, "services/create.html", context)
+
+def update(request, id):
+    service = Service.objects.get(id=id)
+    form = CreateNewService(choices=Service.choices)
+    if request.method == "POST":
+        form = CreateNewService(request.POST, choices=Service.choices)
+        if form.is_valid():
+            cd = form.cleaned_data
+            service = Service(
+                name = cd["name"],
+                description = cd["description"],
+                price_hr = cd["price_hr"],
+                field = cd["field"],
+            )
+            service.save()
+            return redirect("index", id=service.id)
+    else:
+        form = CreateNewService(initial={
+            'name': service.name,
+            'description': service.description,
+            'price_hr': service.price_hr,
+            'field': service.field
+        }, choices=Service.choices)
+
+    context = {
+        "form": form
+    }
+    return render(request, "services/create.html", context)

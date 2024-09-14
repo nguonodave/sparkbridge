@@ -10,6 +10,7 @@
     <!-- specify the name of the url path and it's dynamic value -->
     <li> <a href="{% url 'index' service.id %}">neme: {{service.name}}</a></li>
     <!-- the above is similar to this, href="/services/{{service.id}}" -->
+    <li> <a href="{% url 'service_update' service.id %}">update</a></li>
     <li>desc: {{service.description}}</li><br>
     {% endfor %}
 </ul>
