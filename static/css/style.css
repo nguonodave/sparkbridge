@@ -6,18 +6,22 @@
 }
 
 .navbar {
-    background-color: yellow;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: static;
+    position: fixed;
     width:  100%;
     height: 8vh;
+    font-size: 20px;
+    letter-spacing: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .main-body {
-    height: 92vh;
+    padding-top: 8vh;
+    height: 100vh;
     background: #dde1e7;
 }
 
