@@ -2,27 +2,27 @@
 
 {% block content %}
 <div class="main-body">
-<h1>this is a service</h1>
+    <h1>this is a service</h1>
 
-<!-- <a href="{% url 'service_delete' service.id %}">delete</a> -->
-<button onclick="showDeletePopup()">Delete</button>
+    <!-- <a href="{% url 'service_delete' service.id %}">delete</a> -->
+    <button onclick="showDeletePopup()">Delete</button>
 
-<p>{{service.name}}</p>
-<p>{{service.description}}</p>
-<p>{{service.field}}</p>
-<p>{{service.price_hr}}</p>
-<p>{{service.date}}</p>
+    <p>{{service.name}}</p>
+    <p>{{service.description}}</p>
+    <p>{{service.field}}</p>
+    <p>{{service.price_hr}}</p>
+    <p>{{service.date}}</p>
 
-<!-- Delete Popup -->
-<div id="deletePopup" class="popup" style="display: none;">
-    <div class="popup-content">
-        <p>Are you sure you want to delete "{{service.name}}"?</p>
-        <form action="{% url 'service_delete' service.id %}" method="POST">
-            {% csrf_token %}
-            <button type="submit">Delete</button>
-            <button type="button" onclick="hideDeletePopup()">Cancel</button>
-        </form>
+    <!-- Delete Popup -->
+    <div id="deletePopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <p>Are you sure you want to delete "{{service.name}}"?</p>
+            <form action="{% url 'service_delete' service.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+                <button type="button" onclick="hideDeletePopup()">Cancel</button>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 {% endblock content %}
