@@ -1,5 +1,5 @@
 function showDeletePopup() {
-    document.getElementById('deletePopup').style.display = 'block';
+    document.getElementById('deletePopup').style.display = 'flex';
 }
 
 function hideDeletePopup() {

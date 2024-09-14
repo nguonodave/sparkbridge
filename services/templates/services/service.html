@@ -1,26 +1,28 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<div class="main-body">
-    <h1>this is a service</h1>
+<div class="main-body service-page">
 
-    <!-- <a href="{% url 'service_delete' service.id %}">delete</a> -->
+    <div class="service-content">
+        <div class="service-main">
+            <h1 class="name">{{service.name}}, kshs{{service.price_hr}}/hour</h1>
+            <p class="field">{{service.field}}</p>
+            <p class="date">Created on <span>{{service.date}}</span></p>
+            <p class="company">Provided by <a href="">company name</a></p>
+            <p class="description">{{service.description}}</p>
+        </div>
+    </div>
+
     <button onclick="showDeletePopup()">Delete</button>
-
-    <p>{{service.name}}</p>
-    <p>{{service.description}}</p>
-    <p>{{service.field}}</p>
-    <p>{{service.price_hr}}</p>
-    <p>{{service.date}}</p>
 
     <!-- Delete Popup -->
     <div id="deletePopup" class="popup" style="display: none;">
         <div class="popup-content">
-            <p>Are you sure you want to delete "{{service.name}}"?</p>
+            <p>Are you sure you want to delete the service, <span>{{service.name}}</span>?</p>
             <form action="{% url 'service_delete' service.id %}" method="POST">
                 {% csrf_token %}
-                <button type="submit">Delete</button>
-                <button type="button" onclick="hideDeletePopup()">Cancel</button>
+                <button class="cancel-del del" type="button" onclick="hideDeletePopup()">Cancel</button>
+                <button class="confirm-del del" type="submit">Delete</button>
             </form>
         </div>
     </div>
