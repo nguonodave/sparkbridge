@@ -281,6 +281,10 @@ button {
     display: none;
 }
 
+.form-item textarea {
+    scrollbar-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+}
+
 .form-item input:focus, select:focus, textarea:focus {
     border-color: royalblue;
 }
