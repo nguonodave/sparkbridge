@@ -12,9 +12,11 @@
 <body>
     {% include 'main/nav.html' %}
 
-    {% block content %}
+    <div class="main-body">
+        {% block content %}
 
-    {% endblock content %}
+        {% endblock content %}
+    </div>
 
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>

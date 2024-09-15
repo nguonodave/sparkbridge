@@ -17,11 +17,13 @@
     font-size: 20px;
     letter-spacing: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    top: 0;
+    z-index: 100;
 }
 
 .main-body {
-    padding-top: 8vh;
-    height: 100vh;
+    margin-top: 8vh;
+    padding: 6rem 2rem;
     background: #dde1e7;
 }
 
