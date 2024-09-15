@@ -44,12 +44,10 @@ def update(request, id):
         form = CreateNewService(request.POST, choices=Service.choices)
         if form.is_valid():
             cd = form.cleaned_data
-            service = Service(
-                name = cd["name"],
-                description = cd["description"],
-                price_hr = cd["price_hr"],
-                field = cd["field"],
-            )
+            service.name = cd["name"]
+            service.description = cd["description"]
+            service.price_hr = cd["price_hr"]
+            service.field = cd["field"]
             service.save()
             return redirect("index", id=service.id)
     else:
