@@ -14,7 +14,7 @@
     </div>
 
     <div>
-        <button onclick="showDeletePopup()">Delete</button>
+        <button class="del-btn" onclick="showDeletePopup()">Delete</button>
         <a class="btn-link" href="{% url 'service_update' service.id %}">update</a>
     </div>
 
@@ -24,8 +24,8 @@
             <p>Are you sure you want to delete the service, <span>{{service.name}}</span>?</p>
             <form action="{% url 'service_delete' service.id %}" method="POST">
                 {% csrf_token %}
-                <button class="cancel-del del" type="button" onclick="hideDeletePopup()">Cancel</button>
-                <button class="confirm-del del" type="submit">Delete</button>
+                <button class="cancel-del" type="button" onclick="hideDeletePopup()">Cancel</button>
+                <button class="confirm-del" type="submit">Delete</button>
             </form>
         </div>
     </div>

@@ -40,8 +40,9 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 20px;
-    width: 70%;
-    height: 60%;
+    width: 90%;
+    max-width: 700px;
+    max-height: 600px;
     border-radius: 20px;
     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
 }
@@ -147,13 +148,11 @@ button {
 
 .cancel-del {
     background-color: green;
+    color: white;
 }
 
 .confirm-del {
     background-color: red;
-}
-
-.del {
     color: white;
 }
 
@@ -184,7 +183,7 @@ button {
     text-decoration: none;
 }
 
-.btn-link:hover {
+.btn-link:hover, .del-btn:hover {
     background-color: royalblue;
     color: white;
     transition: .3s;
@@ -276,6 +275,10 @@ button {
     border-radius: 20px;
     border: 1px solid black;
     max-width: 100%;
+}
+
+.form-item textarea::-webkit-scrollbar {
+    display: none;
 }
 
 .form-item input:focus, select:focus, textarea:focus {
