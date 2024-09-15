@@ -65,7 +65,7 @@
   }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: tan;
+    background: royalblue;
   }
 
 .service-main .name {
@@ -98,7 +98,6 @@
 
 .service-main .company a {
     text-transform: capitalize;
-    /* text-decoration: n; */
     color: black;
 }
 
@@ -156,4 +155,57 @@ button {
 
 .del {
     color: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+    transition: transform 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.service-category {
+    font-size: 14px;
+    font-weight: 800;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.service-name {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.service-price {
+    font-size: 18px;
+    color: royalblue;
+    margin-bottom: 8px;
+}
+
+.service-company {
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #888;
 }

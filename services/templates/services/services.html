@@ -1,18 +1,28 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+<h1>Services</h1>
 <a class="create_service" href="{% url 'service_create' %}">Create Service</a>
 
-<h1>These are services</h1>
-
-<ul>
+<div class="services-grid">
     {% for service in services %}
+    {% comment %}
     <!-- specify the name of the url path and it's dynamic value -->
-    <li> <a href="{% url 'index' service.id %}">neme: {{service.name}}</a></li>
+    <!-- <li> <a href="{% url 'index' service.id %}">neme: {{service.name}}</a></li> -->
     <!-- the above is similar to this, href="/services/{{service.id}}" -->
-    <li> <a href="{% url 'service_update' service.id %}">update</a></li>
-    <li>desc: {{service.description}}</li><br>
+    {% endcomment %}
+
+    <a href="{% url 'index' service.id %}" class="service-card">
+        <div class="card-content">
+            <div class="service-category">{{ service.field }}</div>
+            <h2 class="service-name">{{ service.name }}</h2>
+            <div class="service-price">Kshs {{ service.price_hr }}</div>
+            <div class="service-company">by company name</div>
+        </div>
+    </a>
+
+    <!-- <li> <a href="{% url 'service_update' service.id %}">update</a></li> -->
     {% endfor %}
-</ul>
+</div>
 
 {% endblock content %}
