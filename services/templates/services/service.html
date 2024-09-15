@@ -13,8 +13,10 @@
         </div>
     </div>
 
-    <button onclick="showDeletePopup()">Delete</button>
-    <a href="{% url 'service_update' service.id %}">update</a>
+    <div>
+        <button onclick="showDeletePopup()">Delete</button>
+        <a class="btn-link" href="{% url 'service_update' service.id %}">update</a>
+    </div>
 
     <!-- Delete Popup -->
     <div id="deletePopup" class="popup" style="display: none;">

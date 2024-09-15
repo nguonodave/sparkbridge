@@ -136,12 +136,12 @@
 }
 
 button {
-    margin: 5px;
+    background-color: white;
+    margin: 25px 5px 5px;
     border: 1px, solid black;
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 15px;
-    margin-top: 25px;
     cursor: pointer;
 }
 
@@ -161,6 +161,33 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 25px;
+}
+
+.services-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.btn-link {
+    background-color: white;
+    margin: 5px;
+    border: 1px, solid black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+    color:  black;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    background-color: royalblue;
+    color: white;
+    transition: .3s;
 }
 
 .service-card {

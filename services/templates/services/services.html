@@ -1,8 +1,10 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h1>Services</h1>
-<a class="create_service" href="{% url 'service_create' %}">Create Service</a>
+<div class="services-header">
+    <h1>Services</h1>
+    <a class="btn-link" href="{% url 'service_create' %}">Create Service</a>
+</div>
 
 <div class="services-grid">
     {% for service in services %}
