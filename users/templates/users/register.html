@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+
+{%block content %}
+<p>Choose wether you want to be a customer or a company</p>
+
+<a href="{% url 'register_company' %}">Company</a>
+<a href="{% url 'register_customer' %}">Customer</a>
+{% endblock %}
