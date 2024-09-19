@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from . models import User
 from .forms import CustomerSignUpForm, CompanySignUpForm
+from django.contrib import messages
 
 def register(request):
     return render(request, 'users/register.html')
@@ -38,7 +39,8 @@ def login_user(request):
         try:
             user = User.objects.get(email=email_input)
         except:
-            print("email does not exist")
+            messages.error(request, "Email does not exist.")
+            return render(request, 'users/login.html')
 
         user = authenticate(request, email=email_input, password=password_input)
 
@@ -46,7 +48,7 @@ def login_user(request):
             login(request, user)
             return redirect('home')
         else:
-            print("wrong email or password")
+            messages.error(request, "Wrong email or password.")
 
     return render(request, 'users/login.html')
 

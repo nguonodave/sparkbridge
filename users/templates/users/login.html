@@ -2,6 +2,14 @@
 
 {% block content %}
 
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <form action="{% url 'login_user' %}" method="POST">
     {% csrf_token %}
     <input type="text" name="email" placeholder="Enter your email" required>
