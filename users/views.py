@@ -23,3 +23,6 @@ def register_company(request):
     else:
         form = CompanySignUpForm()
     return render(request, 'users/register_company.html', {'form': form})
+
+def login_user(request):
+    return render(request, 'users/login.html')
