@@ -48,7 +48,7 @@ def login_user(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, "Wrong email or password.")
+            messages.error(request, "Wrong password. Please enter the correct email and password combination.")
 
     return render(request, 'users/login.html')
 
