@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from . models import User
 from .forms import CustomerSignUpForm, CompanySignUpForm
 
@@ -46,3 +46,7 @@ def login_user(request):
             print("wrong email or password")
 
     return render(request, 'users/login.html')
+
+def logout_user(request):
+    logout(request)
+    return redirect('login_user')
