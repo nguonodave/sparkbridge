@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from . models import Service
 from . forms import CreateNewService
 
@@ -16,6 +17,7 @@ def index(request, id):
     }
     return render(request, 'services/service.html', context)
 
+@login_required(login_url='login_user')
 def create(request):
     form = CreateNewService(choices=Service.choices)
     if request.method == "POST":
@@ -37,6 +39,7 @@ def create(request):
     }
     return render(request, "services/create.html", context)
 
+@login_required(login_url='login_user')
 def update(request, id):
     service = Service.objects.get(id=id)
     form = CreateNewService(choices=Service.choices)
@@ -63,6 +66,7 @@ def update(request, id):
     }
     return render(request, "services/create.html", context)
 
+@login_required(login_url='login_user')
 def delete(request, id):
     service = Service.objects.get(id=id)
     if request.method == "POST":
