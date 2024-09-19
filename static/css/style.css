@@ -48,6 +48,8 @@ a {
 
 .account-options a {
     margin-bottom: 15px;
+    font-size: 18px;
+    letter-spacing: normal;
 }
 
 .account-options a:hover {
