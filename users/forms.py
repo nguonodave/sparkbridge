@@ -1,17 +1,35 @@
 from django.contrib.auth.forms import UserCreationForm
 from .models import User, Customer, Company
 from django import forms
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 class CustomerSignUpForm(UserCreationForm):
-    d_o_b = forms.DateField(required=True, widget=forms.DateInput(
-        attrs = {
-            'type':'date'
-        }
-    ))
+    d_o_b = forms.DateField(
+        required=True,
+        widget=forms.DateInput(attrs = {
+            'type':'date',
+            'class':'date',
+        })
+    )
 
     class Meta:
         model = User
         fields = ['email', 'username', 'password1', 'password2', 'd_o_b']
+
+    def clean_d_o_b(self):
+        d_o_b = self.cleaned_data.get('d_o_b')
+        current_date = timezone.now().date()
+        
+        if d_o_b > current_date:
+            raise ValidationError("Please enter a valid date of birth.")
+
+        age = current_date.year - d_o_b.year
+        if (current_date.month < d_o_b.month) or (current_date.month == d_o_b.month and current_date.day < d_o_b.day):
+            age -= 1
+
+        if age < 18:
+            raise ValidationError("Sorry, you need to be 18 years and above to use this website.")
 
     def save(self, commit=True):
         user = super().save(commit=False)
