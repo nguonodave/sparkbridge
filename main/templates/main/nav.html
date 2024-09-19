@@ -1,11 +1,11 @@
 <nav class="navbar">
     <h1><a href="{% url 'home' %}">NETFIX</a></h1>
 
-    <div class="acc">
-        <p>Account</p>
-        <div class="options">
-            <li>Login</li>
-            <li>Register</li>
+    <div class="account-dropdown">
+        <span>Account</span>
+        <div class="account-options">
+            <a href="{% url 'login_user' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
         </div>
     </div>
 </nav>
