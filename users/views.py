@@ -27,6 +27,9 @@ def register_company(request):
     return render(request, 'users/register_company.html', {'form': form})
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+
     if request.method == "POST":
         # print(request.POST)
         email_input = request.POST['email']
