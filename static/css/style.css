@@ -32,10 +32,6 @@ a {
     display: inline-block;
 }
 
-.account-dropdown:hover {
-    cursor: pointer;
-}
-
 .account-options {
     display: none;
     position: absolute;
