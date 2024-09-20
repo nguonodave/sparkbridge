@@ -39,7 +39,7 @@ def login_user(request):
         try:
             user = User.objects.get(email=email_input)
         except:
-            messages.error(request, "Email does not exist.")
+            messages.error(request, "Sorry! That email does not exist. Please consider registering.")
             return render(request, 'users/login.html')
 
         user = authenticate(request, email=email_input, password=password_input)
