@@ -12,6 +12,7 @@ def register_customer(request):
         form = CustomerSignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=True)
+            login(request, user)
             return redirect('home')
     else:
         form = CustomerSignUpForm()
@@ -22,6 +23,7 @@ def register_company(request):
         form = CompanySignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=True)
+            login(request, user)
             return redirect('home')
     else:
         form = CompanySignUpForm()
