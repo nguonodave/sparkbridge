@@ -9,7 +9,7 @@
         <div class="items">
             {% if messages %}
             {% for message in messages %}
-            <p>{{ message }}</p>
+            <p id="message">{{ message }}</p>
             {% endfor %}
             {% endif %}
             <input type="text" name="email" placeholder="Enter your email" required>
