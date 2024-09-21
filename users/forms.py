@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib.auth.forms import UserCreationForm
 from .models import User, Customer, Company
 from django import forms
@@ -41,6 +42,14 @@ class CustomerSignUpForm(UserCreationForm):
 
 class CompanySignUpForm(UserCreationForm):
     field = forms.ChoiceField(choices=Company.choices)
+
+    def __init__(self, *args, **kwargs):
+        super(CompanySignUpForm, self).__init__(*args, **kwargs)
+
+        self.fields['email'].widget.attrs['placeholder'] = 'Enter your email'
+        self.fields['username'].widget.attrs['placeholder'] = 'Enter your username'
+        self.fields['password1'].widget.attrs['placeholder'] = 'Create your password'
+        self.fields['password2'].widget.attrs['placeholder'] = 'Confirm the created password'
 
     class Meta:
         model = User
