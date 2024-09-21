@@ -332,13 +332,13 @@ button {
     border-color: royalblue;
 }
 
-.login-form {
+.login-form, .register-form {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.login-form form, .select-register {
+.login-form form, .select-register, .register-form form {
     /* background-color: red; */
     border-radius: 20px;
     width: 70%;
@@ -347,20 +347,36 @@ button {
     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
 }
 
-.login-form form .items, .select-register-container {
+.register-form form {
+    width: 90%;
+    max-width: 50rem;
+}
+
+.login-form form .items, .register-form form .items, .select-register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.login-form form .items p {
+.login-form .items p {
     width: 80%;
     color: red;
     font-size: 18px;
 }
 
-.login-form form .items input {
+.register-form .items p, .register-form .items ul {
+    width: 80%;
+    color: rgb(82, 82, 82);
+    font-size: 15px;
+}
+
+.register-form .items ul {
+    /* background-color: red; */
+    padding: 0 20px;
+}
+
+.login-form .items input, .register-form .items input, .register-form .items select {
     padding: 12px;
     border-radius: 20px;
     margin-top: 20px;
@@ -369,7 +385,7 @@ button {
     border: 1px solid black;
 }
 
-.login-form form .items input:focus {
+.login-form .items input:focus, .register-form .items input:focus, .register-form .items select:focus {
     border-color: royalblue;
 }
 
