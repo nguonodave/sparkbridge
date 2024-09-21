@@ -30,6 +30,7 @@ def create(request):
                 description = cd["description"],
                 price_hr = cd["price_hr"],
                 field = cd["field"],
+                company = request.user.company
             )
             service.save()
             return redirect("index", id=service.id)
