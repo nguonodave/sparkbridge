@@ -8,7 +8,7 @@ from django.utils import timezone
 class CustomerSignUpForm(UserCreationForm):
     d_o_b = forms.DateField(
         required=True,
-        label = "Date of birth",
+        label = "Enter your date of birth",
         widget=forms.DateInput(attrs = {
             'type':'date',
             'class':'date',
