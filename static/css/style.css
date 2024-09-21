@@ -32,6 +32,10 @@ a {
     display: inline-block;
 }
 
+.account-dropdown span {
+    cursor: pointer;
+}
+
 .account-options {
     display: none;
     position: absolute;
