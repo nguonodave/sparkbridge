@@ -34,6 +34,9 @@ def create(request):
             )
             service.save()
             return redirect("index", id=service.id)
+    else:
+        if not request.user.is_company:
+            return redirect("service_list")
 
     context = {
         "form": form
