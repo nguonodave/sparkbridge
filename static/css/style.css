@@ -365,7 +365,7 @@ button {
     font-size: 18px;
 }
 
-.register-form .items p, .register-form .items ul {
+.register-form .items p, .register-form .items ul, .register-form label {
     width: 80%;
     color: rgb(82, 82, 82);
     font-size: 15px;
@@ -387,6 +387,15 @@ button {
 
 .login-form .items input:focus, .register-form .items input:focus, .register-form .items select:focus {
     border-color: royalblue;
+}
+
+#id_d_o_b {
+    margin-top: 0;
+}
+
+.date-label {
+    margin-top: 20px;
+    display: block;
 }
 
 .select-register {

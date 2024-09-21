@@ -1,12 +1,32 @@
-{% extends 'main/base.html' %} 
+{% extends 'main/base.html' %}
 {% block title %}
-  Customer Registration
+Customer Registration
 {%endblock %}
 
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" name="register">Register</button>
-    </form>
+<div class="register-form">
+  <form method="POST">
+    {% csrf_token %}
+
+    {% for input in form %}
+    <div class="items">
+      
+      {% if input.name == 'd_o_b' %}
+      <label for="id_d_o_b" class="date-label">{{ input.label }}</label>
+      {% endif %}
+
+      {{input}}
+
+      {% if input.help_text %}
+      <p>{{input.help_text}}</p>
+      {% endif %}
+
+    </div>
+    {% endfor %}
+
+    <div class="submit">
+      <input class="btn-link" type="submit" value="Submit">
+    </div>
+  </form>
+</div>
 {% endblock %}
