@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1 class="create-h1">create service</h1>
-
+{% if request.user.is_company %}
 <div class="create-form">
     <form action="" method="POST">
         {% csrf_token %}
@@ -23,4 +23,16 @@
         </div>
     </form>
 </div>
+{% else %}
+<div class="error-card">
+    {{error}}
+</div>
+
+<script>
+    // redirect non-company users after 5 seconds
+    setTimeout(function () {
+        window.location.href = "{% url 'service_list' %}"
+    }, 5000)
+</script>
+{% endif %}
 {% endblock %}

@@ -36,7 +36,10 @@ def create(request):
             return redirect("index", id=service.id)
     else:
         if not request.user.is_company:
-            return redirect("service_list")
+            error_context = {
+                'error': "Access denied! You are not allowed to access this page. You will be redirected to services page after 5 seconds."
+            }
+            return render(request, "services/create.html", error_context)
 
     context = {
         "form": form
