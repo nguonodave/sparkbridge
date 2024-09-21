@@ -6,6 +6,9 @@ function hideDeletePopup() {
     document.getElementById('deletePopup').style.display = 'none'
 }
 
-setTimeout(function(){ 
-    document.getElementById("message").style.display = "none" 
+setTimeout(function() { 
+    const messageElement = document.getElementById("message")
+    if (messageElement) {
+        messageElement.style.display = "none"
+    }
 }, 5000)
