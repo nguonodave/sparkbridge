@@ -41,7 +41,7 @@ def login_user(request):
         try:
             user = User.objects.get(email=email_input)
         except:
-            messages.error(request, "Sorry! That email does not exist. Please consider registering.")
+            messages.error(request, "We could not find and account with that email.")
             return render(request, 'users/login.html')
 
         user = authenticate(request, email=email_input, password=password_input)
@@ -50,7 +50,7 @@ def login_user(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, "Wrong password. Please enter the correct email and password combination.")
+            messages.error(request, "Incorrect password. Try again.")
 
     return render(request, 'users/login.html')
 

@@ -32,7 +32,7 @@ class CustomerSignUpForm(UserCreationForm):
         current_date = timezone.now().date()
         
         if d_o_b > current_date:
-            raise ValidationError("Please enter a valid date of birth.")
+            raise ValidationError("Ivalid date of birth.")
 
         age = current_date.year - d_o_b.year
         if (current_date.month < d_o_b.month) or (current_date.month == d_o_b.month and current_date.day < d_o_b.day):
