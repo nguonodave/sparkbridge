@@ -1,5 +1,4 @@
 from django import forms
-from . models import Service
 
 class CreateNewService(forms.Form):
     name = forms.CharField(max_length=40, required=True)
