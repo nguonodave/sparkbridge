@@ -36,4 +36,4 @@ class Company(models.Model):
     field = models.CharField(max_length=30, blank=False, null=False, default="", choices=choices)
 
     def __str__(self):
-        return str(self.user.id) + ' - ' + self.user.username
+        return self.user.username
