@@ -14,10 +14,12 @@
     </div>
 
     {% if request.user.is_authenticated %}
+    {% if request.user == service.company.user %}
     <div>
         <button class="del-btn" onclick="showDeletePopup()">Delete</button>
         <a class="btn-link" href="{% url 'service_update' service.id %}">update</a>
     </div>
+    {% endif %}
     {% endif %}
 
     <!-- Delete Popup -->
