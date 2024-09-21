@@ -7,10 +7,17 @@
 
     {% for input in form %}
     <div class="items">
+
       {{input}}
+
       {% if input.help_text %}
       <p>{{input.help_text}}</p>
       {% endif %}
+
+      {% for error in input.errors %}
+      <p class="error">{{ error }}</p>
+      {% endfor %}
+      
     </div>
     {% endfor %}
 
