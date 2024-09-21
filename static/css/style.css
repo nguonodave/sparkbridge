@@ -359,9 +359,9 @@ button {
     justify-content: center;
 }
 
-.login-form .items p {
+.login-form .items p, .register-form .error {
     width: 80%;
-    color: red;
+    color: red !important;
     font-size: 18px;
 }
 
