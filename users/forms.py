@@ -8,11 +8,20 @@ from django.utils import timezone
 class CustomerSignUpForm(UserCreationForm):
     d_o_b = forms.DateField(
         required=True,
+        label = "Date of birth",
         widget=forms.DateInput(attrs = {
             'type':'date',
             'class':'date',
         })
     )
+
+    def __init__(self, *args, **kwargs):
+        super(CustomerSignUpForm, self).__init__(*args, **kwargs)
+
+        self.fields['email'].widget.attrs['placeholder'] = 'Enter your email'
+        self.fields['username'].widget.attrs['placeholder'] = 'Enter your username'
+        self.fields['password1'].widget.attrs['placeholder'] = 'Create your password'
+        self.fields['password2'].widget.attrs['placeholder'] = 'Confirm the created password'
 
     class Meta:
         model = User
