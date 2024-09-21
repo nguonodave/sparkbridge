@@ -45,6 +45,7 @@ a {
     position: absolute;
     border-radius: 20px;
     background: #dde1e7;
+    min-width: 160px;
     width: 100%;
     right: 0;
     box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
