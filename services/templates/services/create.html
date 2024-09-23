@@ -1,8 +1,8 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h1 class="create-h1">create service</h1>
 {% if request.user.is_company %}
+<h1 class="create-h1">create service</h1>
 <div class="create-form">
     <form action="" method="POST">
         {% csrf_token %}
