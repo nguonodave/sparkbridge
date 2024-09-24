@@ -2,7 +2,29 @@
 
 {% block content %}
 
-<h1>this is profiles</h1>
-<p>{{user.username}}</p>
-
+{% if request.user.is_authenticated and user.username == profile.username %}
+    <h1 class="full-name">
+        <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
+    </h1>
+    <p>{{profile.username}}</p>
+    
+    {% if profile.is_company %}
+    <p>{{profile.company.field}}</p>
+    {% endif %}
+{% else %}
+    {% if profile.is_company %}
+        <h1 class="full-name">
+            <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
+        </h1>
+        <p>{{profile.username}}</p>
+        <p>{{profile.company.field}}</p>
+    {% else %}
+    <script>
+        // redirect non-profile-owners to login after 5 seconds
+        setTimeout(function () {
+            window.location.href = "{% url 'login_user' %}"
+        }, 1)
+    </script>
+    {% endif %}
+{% endif %}
 {% endblock content %}

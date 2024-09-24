@@ -60,8 +60,10 @@ def logout_user(request):
 
 def profile(request, username):
     user = User.objects.get(username=username)
+    error = "Please login to view your profile. You'll be redirected to login in some few seconds."
     context = {
-        "user": user,
+        "profile": user,
+        "error": error,
     }
 
     return render(request, "users/profile.html", context)
