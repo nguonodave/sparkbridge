@@ -40,6 +40,8 @@ class CustomerSignUpForm(UserCreationForm):
 
         if age < 18:
             raise ValidationError("Sorry, you need to be 18 years and above to use this website.")
+        
+        return d_o_b
 
     def save(self, commit=True):
         user = super().save(commit=False)
