@@ -27,6 +27,9 @@
         <p>{{profile.email}}</p>
         <p>{{profile.company.field}}</p>
         <h1>My Services</h1>
+        {% for service in services %}
+        {{service.name}}
+        {% endfor %}
     {% else %}
     <script>
         // redirect non-profile-owners to login after 5 seconds

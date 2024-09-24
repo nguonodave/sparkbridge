@@ -63,5 +63,8 @@ def profile(request, username):
     context = {
         "profile": user,
     }
+    if user.is_company:
+        services = user.company.service_set.all().order_by('-date')
+        context['services'] = services
 
     return render(request, "users/profile.html", context)
