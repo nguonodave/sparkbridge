@@ -57,3 +57,10 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('login_user')
+
+def profile(request):
+    context = {
+        "text": "some text here"
+    }
+
+    return render(request, "users/profile.html", context)
