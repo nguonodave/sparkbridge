@@ -235,7 +235,6 @@ button {
 }
 
 .service-card {
-    width: 300px;
     border-radius: 10px;
     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
     transition: transform 0.3s;
