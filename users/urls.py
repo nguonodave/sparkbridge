@@ -7,5 +7,5 @@ urlpatterns = [
     path('register/company/', v.register_company, name='register_company'),
     path('login/', v.login_user, name='login_user'),
     path('logout/', v.logout_user, name='logout_user'),
-    path('profile/', v.profile, name='profile'),
+    path('profile/<str:username>/', v.profile, name='profile'),
 ]

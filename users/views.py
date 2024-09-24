@@ -58,9 +58,10 @@ def logout_user(request):
     logout(request)
     return redirect('login_user')
 
-def profile(request):
+def profile(request, username):
+    user = User.objects.get(username=username)
     context = {
-        "text": "some text here"
+        "user": user,
     }
 
     return render(request, "users/profile.html", context)
