@@ -7,6 +7,7 @@
         <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
     </h1>
     <p>{{profile.username}}</p>
+    <p>{{profile.email}}</p>
     
     {% if profile.is_company %}
     <p>{{profile.company.field}}</p>
@@ -23,6 +24,7 @@
             <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
         </h1>
         <p>{{profile.username}}</p>
+        <p>{{profile.email}}</p>
         <p>{{profile.company.field}}</p>
         <h1>My Services</h1>
     {% else %}
