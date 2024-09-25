@@ -19,10 +19,10 @@ def index(request, id):
 
 @login_required(login_url='login_user')
 def create(request):
-    form = CreateNewService(choices=Service.choices)
+    form = CreateNewService(company=request.user.company)
     if request.method == "POST":
         # print(request.POST)
-        form = CreateNewService(request.POST, choices=Service.choices)
+        form = CreateNewService(request.POST, company=request.user.company)
         if form.is_valid():
             cd = form.cleaned_data
             service = Service(
@@ -49,9 +49,9 @@ def create(request):
 @login_required(login_url='login_user')
 def update(request, id):
     service = Service.objects.get(id=id)
-    form = CreateNewService(choices=Service.choices)
+    form = CreateNewService(company=request.user.company)
     if request.method == "POST":
-        form = CreateNewService(request.POST, choices=Service.choices)
+        form = CreateNewService(request.POST, company=request.user.company)
         if form.is_valid():
             cd = form.cleaned_data
             service.name = cd["name"]
@@ -66,7 +66,7 @@ def update(request, id):
             'description': service.description,
             'price_hr': service.price_hr,
             'field': service.field
-        }, choices=Service.choices)
+        }, company=request.user.company)
 
     context = {
         "form": form

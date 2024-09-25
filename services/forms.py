@@ -1,4 +1,5 @@
 from django import forms
+from .models import Service
 
 class CreateNewService(forms.Form):
     name = forms.CharField(max_length=40, required=True)
@@ -6,12 +7,16 @@ class CreateNewService(forms.Form):
     price_hr = forms.DecimalField(decimal_places=2, max_digits=5, min_value=0.00, required=True, label="Price per hour")
     field = forms.ChoiceField(required=True)
 
-    def __init__(self, *args, choices=None, **kwargs):
+    def __init__(self, *args, **kwargs):
+        company = kwargs.pop('company', None)
         super(CreateNewService, self).__init__(*args, **kwargs)
 
         # adding choices to fields
-        if choices:
-            self.fields['field'].choices = choices
+        if company:
+            if company.field != 'All in One':
+                self.fields['field'].choices = [(company.field, company.field)]
+            else:
+                self.fields['field'].choices = Service._meta.get_field('field').choices
 
         # adding placeholders to form fields
         self.fields['name'].widget.attrs['placeholder'] = 'Enter Service Name'
