@@ -1,11 +1,13 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+import uuid
 
 class User(AbstractUser):
     is_company = models.BooleanField(default=False)
     is_customer = models.BooleanField(default=False)
     email = models.EmailField(max_length=100, unique=True)
     username = models.CharField(max_length=100, unique=True)
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
