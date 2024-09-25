@@ -8,7 +8,7 @@
             <h1 class="name">{{service.name}}, kshs{{service.price_hr}}/hour</h1>
             <p class="field">{{service.field}}</p>
             <p class="date">Created on <span>{{service.date}}</span></p>
-            <p class="company">Provided by <a href="">{{service.company}}</a></p>
+            <p class="company">Provided by <a href="{% url 'profile' service.company %}">{{service.company}}</a></p>
             <p class="description">{{service.description}}</p>
         </div>
     </div>
