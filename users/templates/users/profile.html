@@ -3,12 +3,17 @@
 {% block content %}
 
 {% if request.user.is_authenticated and user.username == profile.username and user.is_customer %}
-    <h1 class="full-name">
-        <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
-    </h1>
-    <p>{{profile.username}}</p>
-    <p>{{profile.email}}</p>
-    <h1>Previous Requested Services</h1>
+    <div class="profile-details-header">
+        <h1 class="full-name">
+            <span class="profile-usher">name:</span> <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
+        </h1>
+        <p class="username"><span class="profile-usher">Username:</span> {{profile.username}}</p>
+        <p class="email"><span class="profile-usher">Email:</span> {{profile.email}}</p>
+    </div>
+
+    <div class="services-header">
+        <h1>Previous Requested Services</h1>
+    </div>
 {% else %}
     {% if profile.is_company %}
         <div class="profile-details-header">
