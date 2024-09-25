@@ -213,6 +213,7 @@ button {
     justify-content: center;
     flex-direction: column;
     margin-bottom: 25px;
+    text-transform: capitalize;
 }
 
 .btn-link {
