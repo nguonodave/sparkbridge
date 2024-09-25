@@ -20,12 +20,14 @@ class CustomerSignUpForm(UserCreationForm):
 
         self.fields['email'].widget.attrs['placeholder'] = 'Enter your email'
         self.fields['username'].widget.attrs['placeholder'] = 'Enter your username'
+        self.fields['first_name'].widget.attrs['placeholder'] = 'Enter your first name'
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Enter your last name'
         self.fields['password1'].widget.attrs['placeholder'] = 'Create your password'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm the created password'
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2', 'd_o_b']
+        fields = ['email', 'username', 'first_name', 'last_name', 'password1', 'password2', 'd_o_b']
 
     def clean_d_o_b(self):
         d_o_b = self.cleaned_data.get('d_o_b')
@@ -59,12 +61,14 @@ class CompanySignUpForm(UserCreationForm):
 
         self.fields['email'].widget.attrs['placeholder'] = 'Enter your email'
         self.fields['username'].widget.attrs['placeholder'] = 'Enter your username'
+        self.fields['first_name'].widget.attrs['placeholder'] = 'Enter your first name'
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Enter your last name'
         self.fields['password1'].widget.attrs['placeholder'] = 'Create your password'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm the created password'
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2', 'field']
+        fields = ['email', 'username', 'first_name', 'last_name', 'password1', 'password2', 'field']
 
     def save(self, commit=True):
         user = super().save(commit=False)
