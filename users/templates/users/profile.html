@@ -2,30 +2,23 @@
 
 {% block content %}
 
-{% if request.user.is_authenticated and user.username == profile.username %}
+{% if request.user.is_authenticated and user.username == profile.username and user.is_customer %}
     <h1 class="full-name">
         <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
     </h1>
     <p>{{profile.username}}</p>
     <p>{{profile.email}}</p>
-    
-    {% if profile.is_company %}
-    <p>{{profile.company.field}}</p>
-    {% endif %}
-
-    {% if profile.is_company %}
-    <h1>My Services</h1>
-    {% else %}
     <h1>Previous Requested Services</h1>
-    {% endif %}
 {% else %}
     {% if profile.is_company %}
-        <h1 class="full-name">
-            <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
-        </h1>
-        <p>{{profile.username}}</p>
-        <p>{{profile.email}}</p>
-        <p>{{profile.company.field}}</p>
+        <div class="profile-details-header">
+            <h1 class="full-name">
+                <span class="profile-usher">name:</span> <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
+            </h1>
+            <p class="username"><span class="profile-usher">Username:</span> {{profile.username}}</p>
+            <p class="email"><span class="profile-usher">Email:</span> {{profile.email}}</p>
+            <p class="field"><span class="profile-usher">Company type:</span> {{profile.company.field}}</p>
+        </div>
 
         <div class="services-header">
             <h1>My Services</h1>

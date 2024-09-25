@@ -421,3 +421,30 @@ button {
     width: 80%;
     text-align: center;
 }
+
+.profile-details-header {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 25px 0;
+}
+
+.profile-details-header .full-name {
+    text-transform: capitalize;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.profile-details-header .username, .profile-details-header .email {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.profile-usher {
+    all: initial;
+    font-size: 18px;
+    font-style: italic;
+    text-decoration: underline;
+}
