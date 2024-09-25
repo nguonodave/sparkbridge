@@ -68,7 +68,7 @@ a {
 
 .main-body {
     margin-top: 8vh;
-    padding: 3rem 2rem;
+    padding: 3rem 12%;
     background: #dde1e7;
 }
 
@@ -430,6 +430,17 @@ button {
     justify-content: center;
     margin-bottom: 30px;
     padding: 25px 0;
+    position: relative;
+    height: 120px;
+}
+
+.header-content {
+    /* background-color: yellow; */
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
 }
 
 .profile-details-header .full-name {

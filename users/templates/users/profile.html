@@ -4,11 +4,13 @@
 
 {% if request.user.is_authenticated and user.username == profile.username and user.is_customer %}
     <div class="profile-details-header">
-        <h1 class="full-name">
-            <span class="profile-usher">name:</span> <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
-        </h1>
-        <p class="username"><span class="profile-usher">Username:</span> {{profile.username}}</p>
-        <p class="email"><span class="profile-usher">Email:</span> {{profile.email}}</p>
+        <div class="header-content">
+            <h1 class="full-name">
+                <span class="profile-usher">name:</span> <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
+            </h1>
+            <p class="username"><span class="profile-usher">Username:</span> {{profile.username}}</p>
+            <p class="email"><span class="profile-usher">Email:</span> {{profile.email}}</p>
+        </div>
     </div>
 
     <div class="services-header">
