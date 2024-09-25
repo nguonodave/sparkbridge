@@ -435,7 +435,11 @@ button {
     margin-bottom: 30px;
     padding: 25px 0;
     position: relative;
-    height: 120px;
+    height: 180px;
+}
+
+.customer-details-header {
+    margin-bottom: 0;
 }
 
 .header-content {
@@ -454,7 +458,7 @@ button {
 }
 
 .profile-details-header .username, .profile-details-header .email {
-    font-size: 20px;
+    font-size: 100%;
     margin-bottom: 12px;
 }
 
