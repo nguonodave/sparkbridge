@@ -9,9 +9,6 @@ class CreateNewService(forms.Form):
     def __init__(self, *args, choices=None, **kwargs):
         super(CreateNewService, self).__init__(*args, **kwargs)
 
-        if choices is None:
-            choices = [('Gardening', 'Gardening')]
-
         # adding choices to fields
         if choices:
             self.fields['field'].choices = choices
