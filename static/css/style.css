@@ -460,3 +460,7 @@ button {
     font-style: italic;
     text-decoration: underline;
 }
+
+.services-header-profile {
+    font-size: 12px;
+}
