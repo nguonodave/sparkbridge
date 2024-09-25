@@ -1,7 +1,7 @@
 <nav class="navbar">
     <a class="royal-hover" href="{% url 'service_list' %}">Services</a>
 
-    <h1><a href="{% url 'home' %}">NETFIX</a></h1>
+    <h1><a href="{% url 'home' %}">NET<span class="logo">FIX</span></a></h1>
 
     <div class="account-dropdown">
         {% if request.user.is_authenticated %}

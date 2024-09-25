@@ -31,6 +31,10 @@ a {
     z-index: 100;
 }
 
+.logo {
+    color: royalblue;
+}
+
 .account-dropdown {
     position: relative;
     display: inline-block;
