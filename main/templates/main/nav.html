@@ -22,7 +22,7 @@
 
     <div class="account-dropdown">
         {% if request.user.is_authenticated %}
-        <span class="royal-hover">Welcome {{user.first_name}}</span>
+        <span class="royal-hover welcome-nav-text">Welcome {{user.first_name}}</span>
         {% else %}
         <span class="royal-hover">Account</span>
         {% endif %}

@@ -53,6 +53,10 @@ a {
     cursor: pointer;
 }
 
+.welcome-nav-text {
+    text-transform: capitalize;
+}
+
 .account-options, .services-options {
     display: none;
     position: absolute;
