@@ -79,3 +79,9 @@ def delete(request, id):
     if request.method == "POST":
         service.delete()
         return redirect("service_list")
+    
+def service_field(request, field):
+    # search for the service present in the url
+    field = field.replace('-', ' ').title()
+    services = Service.objects.filter(field=field)
+    return render(request, 'services/field.html', {'services': services, 'field': field})
