@@ -1,20 +1,23 @@
 <nav class="navbar">
-    <a class="royal-hover" href="{% url 'service_list' %}">Services</a>
+    <div class="services-dropdown">
+        <a class="royal-hover" href="{% url 'service_list' %}">Services</a>
+        
+        <div class="services-options">
+            <a class="royal-hover" href="{% url 'services_field' 'air-conditioner' %}">Air Conditioner</a>
+            <a class="royal-hover" href="{% url 'services_field' 'carpentry' %}">Carpentry</a>
+            <a class="royal-hover" href="{% url 'services_field' 'electricity' %}">Electricity</a>
+            <a class="royal-hover" href="{% url 'services_field' 'gardening' %}">Gardening</a>
+            <a class="royal-hover" href="{% url 'services_field' 'home-machines' %}">Home Machines</a>
+            <a class="royal-hover" href="{% url 'services_field' 'house-keeping' %}">House Keeping</a>
+            <a class="royal-hover" href="{% url 'services_field' 'interior-design' %}">Interior Design</a>
+            <a class="royal-hover" href="{% url 'services_field' 'locks' %}">Locks</a>
+            <a class="royal-hover" href="{% url 'services_field' 'painting' %}">Painting</a>
+            <a class="royal-hover" href="{% url 'services_field' 'plumbing' %}">Plumbing</a>
+            <a class="royal-hover" href="{% url 'services_field' 'water-heaters' %}">Water Heaters</a>
+        </div>
+    </div>
 
     <h1><a href="{% url 'home' %}">NET<span class="logo">FIX</span></a></h1>
-    <ul>
-        <li><a href="{% url 'services_field' 'air-conditioner' %}">Air Conditioner</a></li>
-        <li><a href="{% url 'services_field' 'carpentry' %}">Carpentry</a></li>
-        <li><a href="{% url 'services_field' 'electricity' %}">Electricity</a></li>
-        <li><a href="{% url 'services_field' 'gardening' %}">Gardening</a></li>
-        <li><a href="{% url 'services_field' 'home-machines' %}">Home Machines</a></li>
-        <li><a href="{% url 'services_field' 'house-keeping' %}">House Keeping</a></li>
-        <li><a href="{% url 'services_field' 'interior-design' %}">Interior Design</a></li>
-        <li><a href="{% url 'services_field' 'locks' %}">Locks</a></li>
-        <li><a href="{% url 'services_field' 'painting' %}">Painting</a></li>
-        <li><a href="{% url 'services_field' 'plumbing' %}">Plumbing</a></li>
-        <li><a href="{% url 'services_field' 'water-heaters' %}">Water Heaters</a></li>
-    </ul>
 
     <div class="account-dropdown">
         {% if request.user.is_authenticated %}
