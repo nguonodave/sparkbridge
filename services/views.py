@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from . models import Service
-from . forms import CreateNewService
+from . models import Service, RequestService
+from . forms import CreateNewService, RequestServiceForm
 
 def service_list(request):
     services = Service.objects.all().order_by("-date")
@@ -85,3 +85,24 @@ def service_field(request, field):
     field = field.replace('-', ' ').title()
     services = Service.objects.filter(field=field)
     return render(request, 'services/field.html', {'services': services, 'field': field})
+
+def request_service(request, id):
+    service = Service.objects.get(id=id)
+    form = RequestServiceForm()
+
+    if request.method == "POST":
+        form = RequestServiceForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            requested_service = RequestService(
+                customer = request.user.customer,
+                service = service,
+                total_cost = service.price_hr * cd['time']
+            )
+            requested_service.save()
+            return redirect("home")
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'services/request_service.html', context)

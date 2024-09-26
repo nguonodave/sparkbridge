@@ -4,8 +4,9 @@
 {% endblock %}
 
 {% block content %}
-    <p class="title">Service Request Details</p>
-    <form method="POST">
-        <button type="submit">Request</button>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit">
     </form>
 {% endblock %}
