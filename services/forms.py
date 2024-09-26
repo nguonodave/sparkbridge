@@ -25,3 +25,7 @@ class CreateNewService(forms.Form):
 
         # setting autocomplete to off to turn off previous input suggestions
         self.fields['name'].widget.attrs['autocomplete'] = 'off'
+
+class RequestServiceForm(forms.Form):
+    address = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'Enter your address'}))
+    service_time = forms.IntegerField(min_value=1, widget=forms.NumberInput(attrs={'placeholder': 'Enter time for the service in hours'}))
