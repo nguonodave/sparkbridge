@@ -6,5 +6,5 @@ urlpatterns = [
     path('create/', v.create, name='service_create'),
     path('update/<str:id>', v.update, name='service_update'),
     path('delete/<str:id>', v.delete, name='service_delete'),
-    path("<str:id>", v.index, name="index"),
+    path("<uuid:id>", v.index, name="index"),
 ]
