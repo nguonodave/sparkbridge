@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from . models import User
 from .forms import CustomerSignUpForm, CompanySignUpForm
 from django.contrib import messages
@@ -53,10 +53,6 @@ def login_user(request):
             messages.error(request, "Incorrect password. Try again.")
 
     return render(request, 'users/login.html')
-
-def logout_user(request):
-    logout(request)
-    return redirect('login_user')
 
 def profile(request, username):
     user = User.objects.get(username=username)
