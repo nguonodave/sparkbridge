@@ -4,7 +4,7 @@ from .models import Service
 class CreateNewService(forms.Form):
     name = forms.CharField(max_length=40, required=True)
     description = forms.CharField(widget=forms.Textarea, label='Description', required=True)
-    price_hr = forms.DecimalField(decimal_places=2, max_digits=6, min_value=0.00, required=True, label="Price per hour")
+    price_hr = forms.DecimalField(decimal_places=2, max_digits=8, min_value=0.00, max_value=999999.99, required=True, label="Price per hour")
     field = forms.ChoiceField(required=True)
 
     def __init__(self, *args, **kwargs):

@@ -6,7 +6,7 @@ class Service(models.Model):
     company = models.ForeignKey(Company, default="", on_delete=models.CASCADE)
     name = models.CharField(max_length=40)
     description = models.TextField()
-    price_hr = models.DecimalField(decimal_places=2, max_digits=6)
+    price_hr = models.DecimalField(decimal_places=2, max_digits=8)
     choices = (
         ('Air Conditioner', 'Air Conditioner'),
         ('Carpentry', 'Carpentry'),
