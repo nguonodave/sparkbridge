@@ -62,5 +62,8 @@ def profile(request, username):
     if user.is_company:
         services = user.company.service_set.all().order_by('-date')
         context['services'] = services
+    else:
+        requested_services = user.customer.requestservice_set.all().order_by('-date')
+        context['requested_services'] = requested_services
 
     return render(request, "users/profile.html", context)
