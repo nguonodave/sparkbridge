@@ -2,6 +2,11 @@
 
 {% block content %}
 
-{{error}}
+<div class="error-container">
+    <h1 class="exclaim">{{exclaim}}</h1>
+    <h1 class="status">{{status}}</h1>
+    <p class="message">{{message}}</p>
+    <a class="btn-link" href="{% url 'home' %}">Go back to home</a>
+</div>
 
 {% endblock content %}

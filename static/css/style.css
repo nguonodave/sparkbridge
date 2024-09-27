@@ -491,3 +491,21 @@ button {
 .services-header-profile {
     font-size: 12px;
 }
+
+.error-container {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 80%;
+}
+
+.error-container .exclaim, .error-container .status {
+    margin-bottom: 20px;
+}
+
+.error-container a {
+    width: 20%;
+    min-width: 11rem;
+}

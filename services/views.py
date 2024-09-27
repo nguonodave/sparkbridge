@@ -22,12 +22,14 @@ def index(request, id):
 def create(request):
     if not request.user.is_company:
             error_context = {
-                'error': "You do not have permission to access this service."
+                'exclaim': 'Uh-oh!',
+                'status': '403 Forbidden',
+                'message': "This feature is a company-only zone. Check out our signup options."
             }
             return HttpResponseForbidden(render(request, "main/errors.html", error_context))
 
     form = CreateNewService(company=request.user.company)
-    
+
     if request.method == "POST":
         # print(request.POST)
         form = CreateNewService(request.POST, company=request.user.company)
@@ -106,7 +108,9 @@ def request_service(request, id):
     else:
         if not request.user.is_customer:
             error_context = {
-                'error': "You do not have permission to access this service."
+                'exclaim': 'Uh-oh!',
+                'status': '403 Forbidden',
+                'message': "This feature is a customer-only zone. Check out our signup options."
             }
             return HttpResponseForbidden(render(request, "main/errors.html", error_context))
 
