@@ -100,9 +100,11 @@ def request_service(request, id):
         if form.is_valid():
             cd = form.cleaned_data
             requested_service = RequestService(
+                address = cd['address'],
+                time = cd['time'],
                 customer = request.user.customer,
                 service = service,
-                total_cost = service.price_hr * cd['time']
+                total_cost = service.price_hr * cd['time'],
             )
             requested_service.save()
             return redirect("home")
