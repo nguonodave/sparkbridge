@@ -90,6 +90,7 @@ def service_field(request, field):
     services = Service.objects.filter(field=field)
     return render(request, 'services/field.html', {'services': services, 'field': field})
 
+@login_required(login_url='login_user')
 def request_service(request, id):
     service = Service.objects.get(id=id)
     form = RequestServiceForm()
