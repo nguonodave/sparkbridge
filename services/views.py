@@ -107,7 +107,7 @@ def request_service(request, id):
                 total_cost = service.price_hr * cd['time'],
             )
             requested_service.save()
-            return redirect("home")
+            return redirect("profile", request.user.username)
     else:
         if not request.user.is_customer:
             error_context = {
