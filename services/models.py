@@ -32,7 +32,7 @@ class RequestService(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     address = models.CharField(max_length=200)
-    time = models.IntegerField()
+    time = models.IntegerField(default=1)
     total_cost = models.DecimalField(decimal_places=2, max_digits=5)
     date = models.DateTimeField(auto_now=True, null=False)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
