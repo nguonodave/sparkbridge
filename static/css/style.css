@@ -40,8 +40,18 @@ a {
     margin-right: 35px;
 }
 
-.logo {
+.logo span {
     color: royalblue;
+}
+
+.logo:hover {
+    color: royalblue;
+    transition: .2s;
+}
+
+.logo:hover span {
+    color: black;
+    transition: .2s;
 }
 
 .account-dropdown, .services-dropdown {
