@@ -2,23 +2,28 @@
 
 {% block content %}
 
-<div class="services-grid">
-    {% for service in services %}
-    {% comment %}
-    <!-- specify the name of the url path and it's dynamic value -->
-    <!-- <li> <a href="{% url 'index' service.id %}">neme: {{service.name}}</a></li> -->
-    <!-- the above is similar to this, href="/services/{{service.id}}" -->
-    {% endcomment %}
-
-    <a href="{% url 'index' service.id %}" class="service-card">
-        <div class="card-content">
-            <div class="service-category">{{ service.field }}</div>
-            <h2 class="service-name">{{ service.name }}</h2>
-            <div class="service-price">Kshs {{ service.price_hr }}</div>
-            <div class="service-company">by {{service.company}}</div>
-        </div>
-    </a>
-    {% endfor %}
-</div>
+{% if services %}
+    <div class="services-header services-field-header">
+        <h1>{{field}} Services</h1>
+    </div>
+    <div class="services-grid">
+        {% for service in services %}
+        <a href="{% url 'index' service.id %}" class="service-card">
+            <div class="card-content">
+                <div class="service-category">{{ service.field }}</div>
+                <h2 class="service-name">{{ service.name }}</h2>
+                <div class="service-price">Kshs {{ service.price_hr }}</div>
+                <div class="service-company">by {{service.company}}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="error-container">
+        <h2 class="exclaim">Oh snap!</h2>
+        <h2 class="status">Looks like no {{field}} services are available at the moment.</h2>
+        <p class="message">Kindly check back soon.</p>
+    </div>
+{% endif %}
 
 {% endblock content %}

@@ -239,6 +239,10 @@ button {
     text-transform: capitalize;
 }
 
+.services-field-header {
+    margin-bottom: 6vh;
+}
+
 .btn-link {
     background-color: white;
     margin: 5px;
@@ -503,6 +507,10 @@ button {
 
 .error-container .exclaim, .error-container .status {
     margin-bottom: 20px;
+}
+
+.error-container .message {
+    font-size: 1.25rem;
 }
 
 .error-container a {
