@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . models import Service, RequestService
 from . forms import CreateNewService, RequestServiceForm
+from django.http import HttpResponseForbidden
 
 def service_list(request):
     services = Service.objects.all().order_by("-date")
@@ -101,6 +102,12 @@ def request_service(request, id):
             )
             requested_service.save()
             return redirect("home")
+    else:
+        if not request.user.is_customer:
+            error_context = {
+                'error': "You do not have permission to access this service."
+            }
+            return HttpResponseForbidden(render(request, "main/errors.html", error_context))
 
     context = {
         'form': form,
