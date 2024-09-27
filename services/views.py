@@ -20,7 +20,14 @@ def index(request, id):
 
 @login_required(login_url='login_user')
 def create(request):
+    if not request.user.is_company:
+            error_context = {
+                'error': "You do not have permission to access this service."
+            }
+            return HttpResponseForbidden(render(request, "main/errors.html", error_context))
+
     form = CreateNewService(company=request.user.company)
+    
     if request.method == "POST":
         # print(request.POST)
         form = CreateNewService(request.POST, company=request.user.company)
@@ -35,12 +42,6 @@ def create(request):
             )
             service.save()
             return redirect("index", id=service.id)
-    else:
-        if not request.user.is_company:
-            error_context = {
-                'error': "Access denied! You are not allowed to access this page. You will be redirected to services page after 5 seconds."
-            }
-            return render(request, "services/create.html", error_context)
 
     context = {
         "form": form
