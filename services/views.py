@@ -24,7 +24,7 @@ def create(request):
             error_context = {
                 'exclaim': 'Uh-oh!',
                 'status': '403 Forbidden',
-                'message': "This feature is a company-only zone. Check out our signup options."
+                'message': "This feature is a company-only zone. Check out our register options."
             }
             return HttpResponseForbidden(render(request, "main/errors.html", error_context))
 
@@ -110,7 +110,7 @@ def request_service(request, id):
             error_context = {
                 'exclaim': 'Uh-oh!',
                 'status': '403 Forbidden',
-                'message': "This feature is a customer-only zone. Check out our signup options."
+                'message': "This feature is a customer-only zone. Check out our register options."
             }
             return HttpResponseForbidden(render(request, "main/errors.html", error_context))
 
