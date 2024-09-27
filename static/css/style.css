@@ -312,8 +312,23 @@ button {
     margin-bottom: 8px;
 }
 
+.service-price span {
+    color: black;
+}
+
+.service-date {
+    font-size: 16px;
+    text-transform: capitalize;
+    margin-bottom: 12px;
+}
+
+.service-date span {
+    text-decoration: underline;
+    font-style: italic;
+}
+
 .service-company {
-    font-size: 14px;
+    font-size: 98%;
     text-transform: capitalize;
     color: #888;
 }
@@ -504,6 +519,7 @@ button {
 
 .services-header-profile {
     font-size: 12px;
+    margin-bottom: 6vh;
 }
 
 .error-container {
