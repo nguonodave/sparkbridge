@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate
 from . models import User
 from .forms import CustomerSignUpForm, CompanySignUpForm
 from django.contrib import messages
+from django.utils import timezone
 
 def register(request):
     return render(request, 'users/register.html')
@@ -65,5 +66,14 @@ def profile(request, username):
     else:
         requested_services = user.customer.requestservice_set.all().order_by('-date')
         context['requested_services'] = requested_services
+
+        d_o_b = user.customer.d_o_b
+        current_date = timezone.now().date()
+
+        age = current_date.year - d_o_b.year
+        if (current_date.month < d_o_b.month) or (current_date.month == d_o_b.month and current_date.day < d_o_b.day):
+            age -= 1
+
+        context['age'] = age
 
     return render(request, "users/profile.html", context)
