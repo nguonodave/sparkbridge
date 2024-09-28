@@ -544,7 +544,7 @@ button {
     min-width: 11rem;
 }
 
-.no-requested-services {
+.no-profile-services {
     /* background-color: red; */
     display: flex;
     flex-direction: column;
@@ -552,7 +552,7 @@ button {
     justify-content: center;
 }
 
-.no-requested-services p {
+.no-profile-services p {
     font-size: 1.25rem;
     text-align: center;
 }
