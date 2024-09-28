@@ -543,3 +543,16 @@ button {
     width: 20%;
     min-width: 11rem;
 }
+
+.no-requested-services {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-requested-services p {
+    font-size: 1.25rem;
+    text-align: center;
+}
