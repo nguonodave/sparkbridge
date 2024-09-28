@@ -4,6 +4,7 @@ from . models import User
 from .forms import CustomerSignUpForm, CompanySignUpForm
 from django.contrib import messages
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     return render(request, 'users/register.html')
@@ -55,25 +56,25 @@ def login_user(request):
 
     return render(request, 'users/login.html')
 
-def profile(request, username):
-    user = User.objects.get(username=username)
+@login_required(login_url='login_user')
+def customer_profile(request):
+    user = User.objects.get(username=request.user.username)
+    
+    requested_services = user.customer.requestservice_set.all().order_by('-date')
+
+    d_o_b = user.customer.d_o_b
+    current_date = timezone.now().date()
+    age = current_date.year - d_o_b.year
+    if (current_date.month < d_o_b.month) or (current_date.month == d_o_b.month and current_date.day < d_o_b.day):
+        age -= 1
+
     context = {
         "profile": user,
+        "age": age,
+        'requested_services': requested_services,
     }
-    if user.is_company:
-        services = user.company.service_set.all().order_by('-date')
-        context['services'] = services
-    else:
-        requested_services = user.customer.requestservice_set.all().order_by('-date')
-        context['requested_services'] = requested_services
-
-        d_o_b = user.customer.d_o_b
-        current_date = timezone.now().date()
-
-        age = current_date.year - d_o_b.year
-        if (current_date.month < d_o_b.month) or (current_date.month == d_o_b.month and current_date.day < d_o_b.day):
-            age -= 1
-
-        context['age'] = age
 
     return render(request, "users/profile.html", context)
+
+def company_profile(request):
+    pass
