@@ -5,6 +5,7 @@ from .forms import CustomerSignUpForm, CompanySignUpForm
 from django.contrib import messages
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 
 def register(request):
     return render(request, 'users/register.html')
@@ -58,6 +59,14 @@ def login_user(request):
 
 @login_required(login_url='login_user')
 def customer_profile(request):
+    if not request.user.is_customer:
+            error_context = {
+                'exclaim': 'Uh-oh!',
+                'status': '403 Forbidden',
+                'message': "This feature is a customer-only zone. Check out our register options."
+            }
+            return HttpResponseForbidden(render(request, "main/errors.html", error_context))
+
     user = User.objects.get(username=request.user.username)
     
     requested_services = user.customer.requestservice_set.all().order_by('-date')
