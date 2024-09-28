@@ -18,19 +18,26 @@
         <h1>Previous Requested Services</h1>
     </div>
 
-    <div class="services-grid">
-        {% for requested_service in requested_services %}
-        <a href="{% url 'index' requested_service.service.id %}" class="service-card">
-            <div class="card-content">
-                <p class="service-category">{{ requested_service.service.field }}</p>
-                <h2 class="service-name">{{ requested_service.service }}</h2>
-                <p class="service-price"><span>Total incured cost:</span> Kshs {{ requested_service.total_cost }}</p>
-                <p class="service-date">requested on <span>{{requested_service.date}}</span></p>
-                <p class="service-company">provided by {{requested_service.service.company}}</p>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
+    {% if requested_services %}
+        <div class="services-grid">
+            {% for requested_service in requested_services %}
+            <a href="{% url 'index' requested_service.service.id %}" class="service-card">
+                <div class="card-content">
+                    <p class="service-category">{{ requested_service.service.field }}</p>
+                    <h2 class="service-name">{{ requested_service.service }}</h2>
+                    <p class="service-price"><span>Total incured cost:</span> Kshs {{ requested_service.total_cost }}</p>
+                    <p class="service-date">requested on <span>{{requested_service.date}}</span></p>
+                    <p class="service-company">provided by {{requested_service.service.company}}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-requested-services">
+            <p>Seems like your service request adventure hasn't begun yet.</p>
+            <a class="btn-link" href="{% url 'service_list' %}">Explore services</a>
+        </div>
+    {% endif %}
 {% else %}
     <div class="profile-details-header">
         <div class="header-content">
