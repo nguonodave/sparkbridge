@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% if request.user.is_authenticated and user.username == profile.username %}
+{% if request.user.is_authenticated and user.username == profile.username and user.is_customer %}
     <div class="profile-details-header customer-details-header">
         <div class="header-content">
             <h1 class="full-name">
