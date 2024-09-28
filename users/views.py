@@ -76,5 +76,10 @@ def customer_profile(request):
 
     return render(request, "users/profile.html", context)
 
-def company_profile(request):
-    pass
+def company_profile(request, username):
+    user = User.objects.get(username=username)
+    services = user.company.service_set.all().order_by('-date')
+    context = {
+        'services': services
+    }
+    return render(request, "users/profile.html", context)
