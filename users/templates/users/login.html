@@ -3,7 +3,7 @@
 {% block content %}
 <h1 class="log-h1">Glad to have you back!</h1>
 
-<div class="login-form">
+<div class="basic-form">
     <form action="{% url 'login_user' %}" method="POST">
         {% csrf_token %}
         <div class="items">
