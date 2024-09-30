@@ -37,5 +37,9 @@ class RequestService(models.Model):
     date = models.DateTimeField(auto_now=True, null=False)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
+    class Meta:
+        verbose_name = 'Requested service'
+        verbose_name_plural = 'Requested services'
+
     def __str__(self):
         return f"{self.service.name} by {self.customer.user.username}"

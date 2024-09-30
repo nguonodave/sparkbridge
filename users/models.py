@@ -37,5 +37,9 @@ class Company(models.Model):
     )
     field = models.CharField(max_length=30, blank=False, null=False, default="", choices=choices)
 
+    class Meta:
+        verbose_name = 'Company'
+        verbose_name_plural = 'Companies'
+
     def __str__(self):
         return self.user.username
