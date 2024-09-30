@@ -540,8 +540,9 @@ button {
 }
 
 .error-container a {
-    width: 20%;
-    min-width: 11rem;
+    display: inline-block;
+    align-self: flex-start;
+    margin-left: 0;
 }
 
 .no-profile-services {
