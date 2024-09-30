@@ -22,7 +22,8 @@
     <div class="error-container">
         <h2 class="exclaim">Oh snap!</h2>
         <h2 class="status">Looks like no {{field}} services are available at the moment.</h2>
-        <p class="message">Kindly check back soon.</p>
+        <p class="message">Kindly check back soon. Meanwhile you can explore other offered services.</p>
+        <a class="btn-link" href="{% url 'service_list' %}">Explore</a>
     </div>
 {% endif %}
 
