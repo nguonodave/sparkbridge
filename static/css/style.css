@@ -540,7 +540,6 @@ button {
 }
 
 .error-container a {
-    display: inline-block;
     align-self: flex-start;
     margin-left: 0;
 }
