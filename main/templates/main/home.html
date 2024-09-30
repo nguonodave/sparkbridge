@@ -1,5 +1,20 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h2>this is home</h2>
+<div class="services-header">
+    <h1>Most Requested Services</h1>
+</div>
+
+<div class="services-grid">
+    {% for service in most_requested_services %}
+    <a href="{% url 'index' service.id %}" class="service-card">
+        <div class="card-content">
+            <div class="service-category">{{ service.field }}</div>
+            <h2 class="service-name">{{ service.name }}</h2>
+            <div class="service-price">Kshs {{ service.price_hr }}</div>
+            <div class="service-company">by {{service.company}}</div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
 {% endblock content %}

@@ -1,8 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as django_logout
+from services.models import Service
+from django.db.models import Count
 
 def home(request):
-    return render(request, "main/home.html")
+    most_requested_services = Service.objects.annotate(request_count=Count('requestservice')).order_by('-request_count')
+
+    context = {
+        'most_requested_services': most_requested_services,
+    }
+    return render(request, "main/home.html", context)
 
 def logout_user(request):
     django_logout(request)
