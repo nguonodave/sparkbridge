@@ -12,3 +12,6 @@ setTimeout(function() {
         messageElement.style.display = "none"
     }
 }, 5000)
+
+const date = new Date();
+document.getElementById("year").innerHTML = date.getFullYear();
