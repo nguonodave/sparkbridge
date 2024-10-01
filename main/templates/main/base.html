@@ -12,10 +12,13 @@
 <body>
     {% include 'main/nav.html' %}
 
-    <div class="main-body">
-        {% block content %}
+    <div class="body-wrapper">
+        <div class="main-body">
+            {% block content %}
 
-        {% endblock content %}
+            {% endblock content %}
+        </div>
+        {% include 'main/footer.html' %}
     </div>
 
     <script src="{% static 'js/scripts.js' %}"></script>
