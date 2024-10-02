@@ -527,7 +527,7 @@ button {
     margin-bottom: 12px;
 }
 
-.profile-details-header .username, .profile-details-header .email {
+.profile-details-header .username, .profile-details-header .email, .profile-details-header .age {
     font-size: 100%;
     margin-bottom: 12px;
 }
