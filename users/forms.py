@@ -40,8 +40,8 @@ class CustomerSignUpForm(UserCreationForm):
         if (current_date.month < d_o_b.month) or (current_date.month == d_o_b.month and current_date.day < d_o_b.day):
             age -= 1
 
-        if age < 18:
-            raise ValidationError("Sorry, you need to be 18 years and above to use this website.")
+        if age < 18 or age > 100:
+            raise ValidationError("Sorry! We only allow 18 years old to 100 years old folks to use this platform.")
         
         return d_o_b
 
