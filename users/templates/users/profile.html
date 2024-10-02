@@ -68,10 +68,17 @@
             {% endfor %}
         </div>
     {% else %}
-        <div class="no-profile-services">
-            <p>No services from {{profile.username}} just yet.</p>
-            <a class="btn-link" href="{% url 'service_list' %}">Explore other services</a>
-        </div>
+        {% if request.user.is_customer %}
+            <div class="no-profile-services">
+                <p>No services from {{profile.username}} just yet.</p>
+                <a class="btn-link" href="{% url 'service_list' %}">Explore other services</a>
+            </div>
+        {% else %}
+            <div class="no-profile-services">
+                <p>You haven't created a service yet.</p>
+                <a class="btn-link" href="{% url 'service_create' %}">Create</a>
+            </div>
+        {% endif %}
     {% endif %}
 {% endif %}
 {% endblock content %}
