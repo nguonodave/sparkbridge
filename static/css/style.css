@@ -157,6 +157,13 @@ a {
     margin-bottom: 20px;
 }
 
+.service-main .price {
+    margin-bottom: 20px;
+    color: royalblue;
+    font-weight: 700;
+    font-size: 18px;
+}
+
 .service-main .date {
     margin-bottom: 20px;
 }
@@ -185,8 +192,18 @@ a {
     color: black;
 }
 
+.service-main .company a:hover {
+    text-decoration: underline;
+}
+
+.desc-head {
+    text-decoration: underline;
+    font-style: italic;
+}
+
 .service-main .description {
     padding-right: 20px;
+    margin-top: 10px;
 }
 
 .popup {

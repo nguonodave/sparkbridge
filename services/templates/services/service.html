@@ -5,10 +5,12 @@
 
     <div class="service-content">
         <div class="service-main">
-            <h1 class="name">{{service.name}}, kshs{{service.price_hr}}/hour</h1>
+            <h1 class="name">{{service.name}}</h1>
             <p class="field">{{service.field}}</p>
+            <p class="price">Kshs {{service.price_hr}} per hour</p>
             <p class="date">Created on <span>{{service.date}}</span></p>
             <p class="company">Provided by <a href="{% url 'company_profile' service.company %}">{{service.company}}</a></p>
+            <p class="desc-head">Description:</p>
             <p class="description">{{service.description}}</p>
         </div>
     </div>
