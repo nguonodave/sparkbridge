@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
-    list_display = ("id", "username", "email", 'is_company', 'is_customer')
+    list_display = ("username", "email", 'is_company', 'is_customer', "id")
     list_filter = ('is_company', 'is_customer', 'is_staff', 'is_superuser', 'is_active')
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
