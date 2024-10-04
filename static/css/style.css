@@ -130,8 +130,12 @@ a {
 
 .hero-content p {
     font-size: 1.2em;
-    margin: 0 auto 30px;
+    margin: 0 auto;
     color: #34495e;
+}
+
+.hero-cta-buttons {
+    display: flex;
 }
 
 .features {

@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        {% if request.user.is_authenticated and request.user.is_customer %}
+        {% if not request.user.is_company %}
         <a class="btn-link" href="{% url 'request_service' service.id %}">Request service</a>
         {% endif %}
     </div>
