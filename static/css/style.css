@@ -632,7 +632,7 @@ button {
     margin-left: 0;
 }
 
-.no-profile-services {
+.no-services {
     /* background-color: red; */
     display: flex;
     flex-direction: column;
@@ -640,7 +640,7 @@ button {
     justify-content: center;
 }
 
-.no-profile-services p {
+.no-services p {
     font-size: 1.25rem;
     text-align: center;
 }
