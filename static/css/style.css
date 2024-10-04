@@ -111,14 +111,26 @@ a {
 }
 
 .hero-content {
-    max-width: 1200px;
+    /* background-color: red; */
+    width: 80%;
     margin: 0 auto;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.hero-content h1 {
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin: 0 auto 30px;
+    color: #34495e;
 }
 
 .main-body {
