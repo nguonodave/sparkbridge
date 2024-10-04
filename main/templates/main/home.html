@@ -1,20 +1,33 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<div class="services-header">
-    <h1>Most Requested Services</h1>
-</div>
+<section class="hero">
+    <div class="hero-content">
+      <h1>Elevate Your Business with Expert Services</h1>
+      <p>Connect with top-tier professionals or showcase your expertise on ServiceConnect, the premier marketplace for quality services.</p>
+      <div class="hero-cta-buttons">
+        <a href="" class="btn-link">Find a Service</a>
+        <a href="" class="btn-link">Offer Your Expertise</a>
+      </div>
+    </div>
+</section>
 
-<div class="services-grid">
-    {% for service in most_requested_services %}
-    <a href="{% url 'index' service.id %}" class="service-card">
-        <div class="card-content">
-            <div class="service-category">{{ service.field }}</div>
-            <h2 class="service-name">{{ service.name }}</h2>
-            <div class="service-price">Kshs {{ service.price_hr }}</div>
-            <div class="service-company">by {{service.company}}</div>
-        </div>
-    </a>
-    {% endfor %}
-</div>
+<section class="most-requested main-body">
+    <div class="services-header">
+        <h1>Most Requested Services</h1>
+    </div>
+
+    <div class="services-grid">
+        {% for service in most_requested_services %}
+        <a href="{% url 'index' service.id %}" class="service-card">
+            <div class="card-content">
+                <div class="service-category">{{ service.field }}</div>
+                <h2 class="service-name">{{ service.name }}</h2>
+                <div class="service-price">Kshs {{ service.price_hr }}</div>
+                <div class="service-company">by {{service.company}}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
 {% endblock content %}

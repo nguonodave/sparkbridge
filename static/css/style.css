@@ -104,6 +104,23 @@ a {
     justify-content: space-between;
 }
 
+.hero {
+    /* background-color: #cbd4e6; */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 66px 0;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .main-body {
     padding: 3rem 12%;
     background: var(--default-back);
