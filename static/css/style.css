@@ -105,7 +105,6 @@ a {
 }
 
 .hero {
-    /* background-color: #cbd4e6; */
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 66px 0;
 }
@@ -148,10 +147,10 @@ a {
 .feature {
     flex-basis: calc(25% - 20px);
     text-align: center;
-    padding: 40px;
+    padding: 18px 60px;
     background-color: white;
     border-radius: 20px;
-    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     margin-bottom: 40px;
 }
 
