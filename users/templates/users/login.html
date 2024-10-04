@@ -1,24 +1,25 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h1 class="log-h1">Glad to have you back!</h1>
+<section class="non-hero-container">
+    <h1 class="log-h1">Glad to have you back!</h1>
 
-<div class="basic-form">
-    <form action="{% url 'login_user' %}" method="POST">
-        {% csrf_token %}
-        <div class="items">
-            {% if messages %}
-            {% for message in messages %}
-            <p id="message">{{ message }}</p>
-            {% endfor %}
-            {% endif %}
-            <input type="text" name="email" placeholder="Enter your email" required>
-            <input type="password" name="password" placeholder="Enter password" required>
-        </div>
-        <div class="submit">
-            <input class="btn-link" type="submit" value="Login">
-        </div>
-    </form>
-</div>
-
+    <div class="basic-form">
+        <form action="{% url 'login_user' %}" method="POST">
+            {% csrf_token %}
+            <div class="items">
+                {% if messages %}
+                {% for message in messages %}
+                <p id="message">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+                <input type="text" name="email" placeholder="Enter your email" required>
+                <input type="password" name="password" placeholder="Enter password" required>
+            </div>
+            <div class="submit">
+                <input class="btn-link" type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+</section>
 {% endblock content %}

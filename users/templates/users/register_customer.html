@@ -4,33 +4,35 @@ Customer Registration
 {%endblock %}
 
 {% block content %}
-<div class="register-form">
-  <form method="POST">
-    {% csrf_token %}
+<section class="non-hero-container">
+  <div class="register-form">
+    <form method="POST">
+      {% csrf_token %}
 
-    {% for input in form %}
-    <div class="items">
+      {% for input in form %}
+      <div class="items">
 
-      {% if input.name == 'd_o_b' %}
-      <label for="id_d_o_b" class="date-label">{{ input.label }}</label>
-      {% endif %}
+        {% if input.name == 'd_o_b' %}
+        <label for="id_d_o_b" class="date-label">{{ input.label }}</label>
+        {% endif %}
 
-      {{input}}
+        {{input}}
 
-      {% if input.help_text %}
-      <p>{{input.help_text}}</p>
-      {% endif %}
+        {% if input.help_text %}
+        <p>{{input.help_text}}</p>
+        {% endif %}
 
-      {% for error in input.errors %}
-      <p class="error">{{ error }}</p>
+        {% for error in input.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+
+      </div>
       {% endfor %}
 
-    </div>
-    {% endfor %}
-
-    <div class="submit">
-      <input class="btn-link" type="submit" value="Submit">
-    </div>
-  </form>
-</div>
+      <div class="submit">
+        <input class="btn-link" type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+</section>
 {% endblock %}

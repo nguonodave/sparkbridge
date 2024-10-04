@@ -1,12 +1,13 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-
-{% if request.user.is_authenticated and user.username == profile.username and user.is_customer %}
+<section class="non-hero-container">
+    {% if request.user.is_authenticated and user.username == profile.username and user.is_customer %}
     <div class="profile-details-header customer-details-header">
         <div class="header-content">
             <h1 class="full-name">
-                <span class="profile-usher">name:</span> <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
+                <span class="profile-usher">name:</span> <span>{{profile.first_name}}
+                </span><span>{{profile.last_name}}</span>
             </h1>
             <p class="username"><span class="profile-usher">Username:</span> {{profile.username}}</p>
             <p class="email"><span class="profile-usher">Email:</span> {{profile.email}}</p>
@@ -20,30 +21,31 @@
     </div>
 
     {% if requested_services %}
-        <div class="services-grid">
-            {% for requested_service in requested_services %}
-            <a href="{% url 'index' requested_service.service.id %}" class="service-card">
-                <div class="card-content">
-                    <p class="service-category">{{ requested_service.service.field }}</p>
-                    <h2 class="service-name">{{ requested_service.service }}</h2>
-                    <p class="service-price"><span>Total incured cost:</span> Kshs {{ requested_service.total_cost }}</p>
-                    <p class="service-date">requested on <span>{{requested_service.date}}</span></p>
-                    <p class="service-company">provided by {{requested_service.service.company}}</p>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
+    <div class="services-grid">
+        {% for requested_service in requested_services %}
+        <a href="{% url 'index' requested_service.service.id %}" class="service-card">
+            <div class="card-content">
+                <p class="service-category">{{ requested_service.service.field }}</p>
+                <h2 class="service-name">{{ requested_service.service }}</h2>
+                <p class="service-price"><span>Total incured cost:</span> Kshs {{ requested_service.total_cost }}</p>
+                <p class="service-date">requested on <span>{{requested_service.date}}</span></p>
+                <p class="service-company">provided by {{requested_service.service.company}}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
     {% else %}
-        <div class="no-profile-services">
-            <p>Seems like your service request adventure hasn't begun yet.</p>
-            <a class="btn-link" href="{% url 'service_list' %}">Explore services</a>
-        </div>
+    <div class="no-profile-services">
+        <p>Seems like your service request adventure hasn't begun yet.</p>
+        <a class="btn-link" href="{% url 'service_list' %}">Explore services</a>
+    </div>
     {% endif %}
-{% else %}
+    {% else %}
     <div class="profile-details-header">
         <div class="header-content">
             <h1 class="full-name">
-                <span class="profile-usher">name:</span> <span>{{profile.first_name}} </span><span>{{profile.last_name}}</span>
+                <span class="profile-usher">name:</span> <span>{{profile.first_name}}
+                </span><span>{{profile.last_name}}</span>
             </h1>
             <p class="username"><span class="profile-usher">Username:</span> {{profile.username}}</p>
             <p class="email"><span class="profile-usher">Email:</span> {{profile.email}}</p>
@@ -54,32 +56,33 @@
     <div class="services-header services-header-profile">
         <h1>{{profile.first_name}}'s Services</h1>
     </div>
-    
+
     {% if services %}
-        <div class="services-grid">
-            {% for service in services %}
-            <a href="{% url 'index' service.id %}" class="service-card">
-                <div class="card-content">
-                    <div class="service-category">{{ service.field }}</div>
-                    <h2 class="service-name">{{ service.name }}</h2>
-                    <div class="service-price">Kshs {{ service.price_hr }}</div>
-                    <div class="service-company">by {{service.company}}</div>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
+    <div class="services-grid">
+        {% for service in services %}
+        <a href="{% url 'index' service.id %}" class="service-card">
+            <div class="card-content">
+                <div class="service-category">{{ service.field }}</div>
+                <h2 class="service-name">{{ service.name }}</h2>
+                <div class="service-price">Kshs {{ service.price_hr }}</div>
+                <div class="service-company">by {{service.company}}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
     {% else %}
-        {% if request.user.is_customer %}
-            <div class="no-profile-services">
-                <p>No services from {{profile.username}} just yet.</p>
-                <a class="btn-link" href="{% url 'service_list' %}">Explore other services</a>
-            </div>
-        {% else %}
-            <div class="no-profile-services">
-                <p>You haven't created a service yet.</p>
-                <a class="btn-link" href="{% url 'service_create' %}">Create</a>
-            </div>
-        {% endif %}
+    {% if request.user.is_customer %}
+    <div class="no-profile-services">
+        <p>No services from {{profile.username}} just yet.</p>
+        <a class="btn-link" href="{% url 'service_list' %}">Explore other services</a>
+    </div>
+    {% else %}
+    <div class="no-profile-services">
+        <p>You haven't created a service yet.</p>
+        <a class="btn-link" href="{% url 'service_create' %}">Create</a>
+    </div>
     {% endif %}
-{% endif %}
+    {% endif %}
+    {% endif %}
+</section>
 {% endblock content %}

@@ -1,25 +1,27 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h1 class="create-h1">create service</h1>
-<div class="create-form">
-    <form action="" method="POST">
-        {% csrf_token %}
+<section class="non-hero-container">
+    <h1 class="create-h1">create service</h1>
+    <div class="create-form">
+        <form action="" method="POST">
+            {% csrf_token %}
 
-        {% for input in form %}
-        <div class="form-item">
-            <div class="label">
-                {{input.label}}:
+            {% for input in form %}
+            <div class="form-item">
+                <div class="label">
+                    {{input.label}}:
+                </div>
+                <div class="input">
+                    {{input}}
+                </div>
             </div>
-            <div class="input">
-                {{input}}
-            </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
 
-        <div class="submit">
-            <input class="btn-link" type="submit" value="Submit">
-        </div>
-    </form>
-</div>
+            <div class="submit">
+                <input class="btn-link" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</section>
 {% endblock %}

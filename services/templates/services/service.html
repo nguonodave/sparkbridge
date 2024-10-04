@@ -1,43 +1,46 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<div class="service-page">
+<section class="non-hero-container">
+    <div class="service-page">
 
-    <div class="service-content">
-        <div class="service-main">
-            <h1 class="name">{{service.name}}</h1>
-            <p class="field">{{service.field}}</p>
-            <p class="price">Kshs {{service.price_hr}} per hour</p>
-            <p class="date">Created on <span>{{service.date}}</span></p>
-            <p class="company">Provided by <a href="{% url 'company_profile' service.company %}">{{service.company}}</a></p>
-            <p class="desc-head">Description:</p>
-            <p class="description">{{service.description}}</p>
+        <div class="service-content">
+            <div class="service-main">
+                <h1 class="name">{{service.name}}</h1>
+                <p class="field">{{service.field}}</p>
+                <p class="price">Kshs {{service.price_hr}} per hour</p>
+                <p class="date">Created on <span>{{service.date}}</span></p>
+                <p class="company">Provided by <a
+                        href="{% url 'company_profile' service.company %}">{{service.company}}</a></p>
+                <p class="desc-head">Description:</p>
+                <p class="description">{{service.description}}</p>
+            </div>
         </div>
-    </div>
 
-    {% if request.user.is_authenticated %}
-    {% if request.user == service.company.user %}
-    <div>
-        <button class="del-btn" onclick="showDeletePopup()">Delete</button>
-        <a class="btn-link" href="{% url 'service_update' service.id %}">update</a>
-    </div>
-    {% endif %}
-    {% endif %}
-
-    <!-- Delete Popup -->
-    <div id="deletePopup" class="popup" style="display: none;">
-        <div class="popup-content">
-            <p>Are you sure you want to delete the service, <span>{{service.name}}</span>?</p>
-            <form action="{% url 'service_delete' service.id %}" method="POST">
-                {% csrf_token %}
-                <button class="cancel-del" type="button" onclick="hideDeletePopup()">Cancel</button>
-                <button class="confirm-del" type="submit">Delete</button>
-            </form>
+        {% if request.user.is_authenticated %}
+        {% if request.user == service.company.user %}
+        <div>
+            <button class="del-btn" onclick="showDeletePopup()">Delete</button>
+            <a class="btn-link" href="{% url 'service_update' service.id %}">update</a>
         </div>
-    </div>
+        {% endif %}
+        {% endif %}
 
-    {% if request.user.is_authenticated and request.user.is_customer %}
-    <a class="btn-link" href="{% url 'request_service' service.id %}">Request service</a>
-    {% endif %}
-</div>
+        <!-- Delete Popup -->
+        <div id="deletePopup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <p>Are you sure you want to delete the service, <span>{{service.name}}</span>?</p>
+                <form action="{% url 'service_delete' service.id %}" method="POST">
+                    {% csrf_token %}
+                    <button class="cancel-del" type="button" onclick="hideDeletePopup()">Cancel</button>
+                    <button class="confirm-del" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+
+        {% if request.user.is_authenticated and request.user.is_customer %}
+        <a class="btn-link" href="{% url 'request_service' service.id %}">Request service</a>
+        {% endif %}
+    </div>
+</section>
 {% endblock content %}

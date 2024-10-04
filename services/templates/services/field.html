@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<section class="non-hero-container">
 {% if services %}
     <div class="services-header services-field-header">
         <h1>{{field}} Services</h1>
@@ -26,5 +27,5 @@
         <a class="btn-link" href="{% url 'service_list' %}">Explore</a>
     </div>
 {% endif %}
-
+</section>
 {% endblock content %}

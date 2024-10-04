@@ -122,9 +122,12 @@ a {
 }
 
 .main-body {
-    padding: 3rem 12%;
     background: var(--default-back);
     flex: 1;
+}
+
+.non-hero-container {
+    padding: 3rem 12%;
 }
 
 .service-page {
@@ -566,7 +569,6 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px;
     width: 80%;
 }
 
