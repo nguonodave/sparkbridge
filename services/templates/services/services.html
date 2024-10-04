@@ -11,6 +11,7 @@
         {% endif %}
     </div>
 
+    {% if services %}
     <div class="services-grid">
         {% for service in services %}
         {% comment %}
@@ -29,5 +30,8 @@
         </a>
         {% endfor %}
     </div>
+    {% else %}
+    <p>Thanks for stopping by. We currently have no services to offer. Kindly check back soon.</p>
+    {% endif %}
 </section>
 {% endblock content %}
