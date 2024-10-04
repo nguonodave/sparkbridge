@@ -49,6 +49,7 @@
       </section>
 </main>
 
+{% if most_requested_services %}
 <section class="most-requested non-hero-container">
     <div class="services-header">
         <h1>Most Requested Services</h1>
@@ -67,4 +68,5 @@
         {% endfor %}
     </div>
 </section>
+{% endif %}
 {% endblock content %}
