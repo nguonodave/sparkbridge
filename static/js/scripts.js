@@ -7,7 +7,7 @@ function hideDeletePopup() {
 }
 
 setTimeout(function() {
-    const messageElements = document.getElementsByClassName("message")
+    const messageElements = document.getElementsByClassName("login-error-message")
     for (let i = 0; i < messageElements.length; i++) {
         messageElements[i].style.display = "none"
     }
