@@ -69,4 +69,4 @@ Feel free to submit a pull request and contribute to the missing functionalities
 
 ## License
 
-[MIT Licence](LICENCE)
+[MIT License](LICENSE)
