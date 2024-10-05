@@ -666,6 +666,7 @@ footer {
     color: hsl(0, 0%, 30%);
     list-style: none;
     font-size: 1rem;
+    text-align: center;
 }
 
 footer a {
