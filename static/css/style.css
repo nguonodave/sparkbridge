@@ -357,6 +357,7 @@ button {
 
 .btn-link:hover, .del-btn:hover {
     background-color: royalblue;
+    border: solid 1px royalblue;
     color: white;
     transition: .3s;
 }
