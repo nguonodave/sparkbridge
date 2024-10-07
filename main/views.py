@@ -4,7 +4,8 @@ from services.models import Service
 from django.db.models import Count
 
 def home(request):
-    most_requested_services = Service.objects.annotate(request_count=Count('requestservice')).filter(request_count__gt=0).order_by('-request_count')
+    # get a max of 8 most requested services with more than one request and display them in the home page
+    most_requested_services = Service.objects.annotate(request_count=Count('requestservice')).filter(request_count__gt=0).order_by('-request_count')[:8]
 
     context = {
         'most_requested_services': most_requested_services,
