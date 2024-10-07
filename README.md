@@ -1,6 +1,6 @@
 # NetFix - Service Provider Platform
 
-NetFix is a Django-based web application that connects customers with service providers for various services and maintenance tasks.
+NetFix is a Django-based web application that connects customers with service providers for various services and maintenance tasks. Kindly note that it is still under development improvements.
 
 ## Features
 
