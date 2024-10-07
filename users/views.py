@@ -36,6 +36,8 @@ def register_company(request):
 def login_user(request):
     if request.user.is_authenticated:
         return redirect('home')
+    
+    next_url = request.GET.get('next') or request.POST.get('next', 'home')
 
     if request.method == "POST":
         # print(request.POST)
@@ -44,19 +46,19 @@ def login_user(request):
 
         try:
             user = User.objects.get(email=email_input)
-        except:
+        except User.DoesNotExist:
             messages.error(request, "We could not find and account with that email.")
-            return render(request, 'users/login.html')
+            return render(request, 'users/login.html', {'next': next_url})
 
         user = authenticate(request, email=email_input, password=password_input)
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect(next_url)
         else:
             messages.error(request, "Incorrect password. Try again.")
 
-    return render(request, 'users/login.html')
+    return render(request, 'users/login.html', {'next': next_url})
 
 # functionality for getting customer's details to display in their profile page
 @login_required(login_url='login_user')
