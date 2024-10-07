@@ -4,6 +4,7 @@ from . models import Service, RequestService
 from . forms import CreateNewService, RequestServiceForm
 from django.http import HttpResponseForbidden
 
+# get all services from the database (order by latest first)
 def service_list(request):
     services = Service.objects.all().order_by("-date")
     context = {
@@ -11,6 +12,7 @@ def service_list(request):
     }
     return render(request, 'services/services.html', context)
 
+# get individual service details when a service object is clicked
 def index(request, id):
     service = Service.objects.get(id=id)
     context = {
@@ -18,6 +20,7 @@ def index(request, id):
     }
     return render(request, 'services/service.html', context)
 
+# functionality for creating a service
 @login_required(login_url='login_user')
 def create(request):
     if not request.user.is_company:
@@ -28,12 +31,14 @@ def create(request):
             }
             return HttpResponseForbidden(render(request, "main/errors.html", error_context))
 
+    # get the company parameter to customize field choices
     form = CreateNewService(company=request.user.company)
 
     if request.method == "POST":
         # print(request.POST)
         form = CreateNewService(request.POST, company=request.user.company)
         if form.is_valid():
+            # extract data from the service creation form
             cd = form.cleaned_data
             service = Service(
                 name = cd["name"],
@@ -50,6 +55,7 @@ def create(request):
     }
     return render(request, "services/create.html", context)
 
+# functionality for updating a service
 @login_required(login_url='login_user')
 def update(request, id):
     service = Service.objects.get(id=id)
@@ -90,6 +96,7 @@ def service_field(request, field):
     services = Service.objects.filter(field=field)
     return render(request, 'services/field.html', {'services': services, 'field': field})
 
+# functionality for requesting a service
 @login_required(login_url='login_user')
 def request_service(request, id):
     service = Service.objects.get(id=id)

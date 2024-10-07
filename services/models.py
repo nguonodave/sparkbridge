@@ -37,6 +37,7 @@ class RequestService(models.Model):
     date = models.DateTimeField(auto_now=True, null=False)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
+    # modify model names as they appear in the django admin panel
     class Meta:
         verbose_name = 'Requested service'
         verbose_name_plural = 'Requested services'

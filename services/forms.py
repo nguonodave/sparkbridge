@@ -8,10 +8,11 @@ class CreateNewService(forms.Form):
     field = forms.ChoiceField(required=True)
 
     def __init__(self, *args, **kwargs):
+        # extracting the company parameter to customize field choices
         company = kwargs.pop('company', None)
         super(CreateNewService, self).__init__(*args, **kwargs)
 
-        # adding choices to fields
+        # adding choices to fields based on the company type
         if company:
             if company.field != 'All in One':
                 self.fields['field'].choices = [(company.field, company.field)]
