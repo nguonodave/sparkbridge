@@ -32,6 +32,7 @@ def register_company(request):
         form = CompanySignUpForm()
     return render(request, 'users/register_company.html', {'form': form})
 
+# login functionality
 def login_user(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -57,6 +58,7 @@ def login_user(request):
 
     return render(request, 'users/login.html')
 
+# functionality for getting customer's details to display in their profile page
 @login_required(login_url='login_user')
 def customer_profile(request):
     if not request.user.is_customer:
@@ -71,6 +73,7 @@ def customer_profile(request):
     
     requested_services = user.customer.requestservice_set.all().order_by('-date')
 
+    # age validation
     d_o_b = user.customer.d_o_b
     current_date = timezone.now().date()
     age = current_date.year - d_o_b.year
@@ -85,6 +88,7 @@ def customer_profile(request):
 
     return render(request, "users/profile.html", context)
 
+# functionality for getting company's details to display in their profile page
 def company_profile(request, username):
     user = User.objects.get(username=username)
     services = user.company.service_set.all().order_by('-date')

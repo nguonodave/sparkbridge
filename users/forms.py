@@ -5,7 +5,9 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 
+# functionality for customer registration
 class CustomerSignUpForm(UserCreationForm):
+    # adding (d_o_b) field in customer creation
     d_o_b = forms.DateField(
         required=True,
         label = "Enter your date of birth",
@@ -15,6 +17,7 @@ class CustomerSignUpForm(UserCreationForm):
         })
     )
 
+    # customizing the form fields
     def __init__(self, *args, **kwargs):
         super(CustomerSignUpForm, self).__init__(*args, **kwargs)
 
@@ -25,10 +28,12 @@ class CustomerSignUpForm(UserCreationForm):
         self.fields['password1'].widget.attrs['placeholder'] = 'Create your password'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm the created password'
 
+    # specifing the model to use (User) and which fields to include in the form
     class Meta:
         model = User
         fields = ['email', 'username', 'first_name', 'last_name', 'password1', 'password2', 'd_o_b']
 
+    # validation on the date of birth to ensure it is realistic (not in the future and within an acceptable age range)
     def clean_d_o_b(self):
         d_o_b = self.cleaned_data.get('d_o_b')
         current_date = timezone.now().date()
@@ -37,6 +42,8 @@ class CustomerSignUpForm(UserCreationForm):
             raise ValidationError("Ivalid date of birth.")
 
         age = current_date.year - d_o_b.year
+
+        # ensure effective calculation of age based on month and day (user must reach the month and day for the age to be a complete one year)
         if (current_date.month < d_o_b.month) or (current_date.month == d_o_b.month and current_date.day < d_o_b.day):
             age -= 1
 
@@ -45,6 +52,7 @@ class CustomerSignUpForm(UserCreationForm):
         
         return d_o_b
 
+    # set the field is_customer to true and save the user, then create the customer instance
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_customer = True
@@ -70,6 +78,7 @@ class CompanySignUpForm(UserCreationForm):
         model = User
         fields = ['email', 'username', 'first_name', 'last_name', 'password1', 'password2', 'field']
 
+    # set the field is_company to true and save the user, then create the company instance
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_company = True

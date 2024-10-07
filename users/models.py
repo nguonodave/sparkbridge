@@ -2,14 +2,21 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 import uuid
 
+'''
+the __str__ method returns the specified field for easy readability in the Django admin
+'''
+
+# extending Django’s built-in AbstractUser, allowing for custom user management
 class User(AbstractUser):
     is_company = models.BooleanField(default=False)
     is_customer = models.BooleanField(default=False)
     email = models.EmailField(max_length=100, unique=True)
     username = models.CharField(max_length=100, unique=True)
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False) # override the default id field
 
+    # specifies that the email field should be used as the username for login authentication
     USERNAME_FIELD = 'email'
+    # specifies additional list of the field names that will be prompted when creating a user with createsuperuser command
     REQUIRED_FIELDS = ['username']
 
     def __str__(self):
