@@ -37,6 +37,7 @@ def login_user(request):
     if request.user.is_authenticated:
         return redirect('home')
     
+    # capture the next url part if available and use it while redirecting, or redirect to home
     next_url = request.GET.get('next') or request.POST.get('next', 'home')
 
     if request.method == "POST":
