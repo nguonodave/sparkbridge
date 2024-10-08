@@ -24,11 +24,7 @@ Customer Registration
 
       {% for input in form %}
       <div class="items">
-
-        {% if input.name == 'd_o_b' %}
-        <label for="id_d_o_b" class="date-label">{{ input.label }}</label>
-        {% endif %}
-
+        <label class="registration-label">{{ input.label }}</label>
         {{input}}
 
         {% if input.help_text %}

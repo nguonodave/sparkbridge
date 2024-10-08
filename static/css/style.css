@@ -562,13 +562,14 @@ button {
     border-color: royalblue;
 }
 
-#id_d_o_b {
-    margin-top: 0;
+.registration-input {
+    margin-top: 7px !important;
 }
 
-.date-label {
+.registration-label {
     margin-top: 20px;
     display: block;
+    color: rgb(33, 33, 33) !important;
 }
 
 .select-register {

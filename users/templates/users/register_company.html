@@ -21,7 +21,7 @@
 
       {% for input in form %}
       <div class="items">
-
+        <label class="registration-label">{{ input.label }}</label>
         {{input}}
 
         {% if input.help_text %}
