@@ -500,6 +500,31 @@ button {
     max-width: 50rem;
 }
 
+.back-to-register {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    /* background-color: red; */
+}
+
+.back-to-register svg {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 0 0;
+    /* background-color: red; */
+}
+
+.back-to-register:hover {
+    color: royalblue;
+    transition: .3s;
+    text-decoration: underline;
+}
+
+.back-to-register:hover svg {
+    transition: .3s;
+    transform: translateX(-10px);
+}
+
 .basic-form form .items, .register-form form .items, .select-register-container {
     display: flex;
     flex-direction: column;
