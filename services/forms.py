@@ -30,3 +30,9 @@ class CreateNewService(forms.Form):
 class RequestServiceForm(forms.Form):
     address = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'Enter your address'}))
     time = forms.IntegerField(min_value=1, max_value=24, widget=forms.NumberInput(attrs={'placeholder': 'Enter time for the service in hours'}))
+
+    def __init__(self, *args, **kwargs):
+        super(RequestServiceForm, self).__init__(*args, **kwargs)
+
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'custom-input'

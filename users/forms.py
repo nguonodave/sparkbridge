@@ -29,7 +29,7 @@ class CustomerSignUpForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm the created password'
 
         for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'registration-input'
+            visible.field.widget.attrs['class'] = 'custom-input'
 
     # specifing the model to use (User) and which fields to include in the form
     class Meta:
@@ -78,7 +78,7 @@ class CompanySignUpForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm the created password'
 
         for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'registration-input'
+            visible.field.widget.attrs['class'] = 'custom-input'
 
     class Meta:
         model = User

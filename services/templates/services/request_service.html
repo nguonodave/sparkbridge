@@ -1,7 +1,4 @@
 {% extends 'main/base.html' %}
-{% block title %}
-    Request Service
-{% endblock %}
 
 {% block content %}
 <section class="non-hero-container">
@@ -9,8 +6,10 @@
         <form action="" method="POST">
             {% csrf_token %}
             <div class="items">
+                <h2>Request Service</h2>
                 {% for input in form %}
-                    {{input}}
+                <label class="custom-label">{{ input.label }}</label>
+                {{input}}
                 {% endfor %}
             </div>
 
