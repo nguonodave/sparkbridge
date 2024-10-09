@@ -700,21 +700,7 @@ footer a {
 }
 
 footer .top {
-    /* background-color: aqua; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 70%;
     margin-bottom: 10px;
-    max-width: 45rem;
-}
-
-.social-links {
-    display: flex;
-}
-
-.social-links a:first-child {
-    margin-right: 21px;
 }
 
 svg {
