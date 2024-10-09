@@ -2,19 +2,24 @@
 
 {% block content %}
 <section class="non-hero-container">
-    <h1 class="log-h1">Glad to have you back!</h1>
-
+    
     <div class="basic-form">
         <form action="{% url 'login_user' %}" method="POST">
             {% csrf_token %}
             <div class="items">
+                <h1 class="log-h1">Glad to have you back!</h1>
                 {% if messages %}
                 {% for message in messages %}
                 <p class="login-error-message">{{ message }}</p>
                 {% endfor %}
                 {% endif %}
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <input type="password" name="password" placeholder="Enter password" required>
+
+                <label class="custom-label">Email</label>
+                <input class="custom-input" type="email" name="email" placeholder="Enter your email" required>
+
+                <label class="custom-label">Password</label>
+                <input class="custom-input" type="password" name="password" placeholder="Enter password" required>
+                
                 <input type="hidden" name="next" value="{{ next }}">
             </div>
             <div class="submit">
