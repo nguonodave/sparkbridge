@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-t=43*$&6$ri9p928z11e_$c@ki!g5bzqz3up81l5=xo#2%v=9j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "sparkbridge-j74l.onrender.com"]
 
 AUTH_USER_MODEL = 'users.User'
 
